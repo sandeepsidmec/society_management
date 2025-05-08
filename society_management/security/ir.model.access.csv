@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_society_user,access_society_user,model_society_user,,1,1,1,1
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
