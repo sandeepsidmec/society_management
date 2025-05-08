@@ -35,7 +35,7 @@
 
     <record id="action_society_user" model="ir.actions.act_window">
         <field name="name">user</field>
-        <field name="res_model">society_user</field>
+        <field name="res_model">society.user</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_user_list"/>
     </record>

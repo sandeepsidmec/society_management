@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_tower_form" model="ir.ui.view">
+        <field name="name">tower</field>
+        <field name="model">society.tower</field>
+        <field name="arch" type="xml">
+            <form string="tower">
+                <sheet>
+                    <group>
+                        <field name="tower_name"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_tower_list" model="ir.ui.view">
+        <field name="name">tower</field>
+        <field name="model">society.tower</field>
+        <field name="arch" type="xml">
+            <list string="tower">
+                <field name="tower_name"/>
+<!--                <field name="no_of_apart"/>-->
+
+            </list>
+        </field>
+    </record>
+
+    <record id="action_society_tower" model="ir.actions.act_window">
+        <field name="name">tower</field>
+        <field name="res_model">society.tower</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_tower_list"/>
+    </record>
+
+</odoo>
