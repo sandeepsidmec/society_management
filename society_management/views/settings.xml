@@ -5,16 +5,49 @@
         <field name="model">society.settings</field>
         <field name="arch" type="xml">
             <form string="settings">
-                <field name="name"/>
+                <sheet>
+                <h3>App Settings</h3><br/>
+                <group>
+                <field name="country"/>
+<!--                <field name="timezone"/>-->
+                <field name="currency"/>
+                </group>
+                </sheet>
             </form>
         </field>
     </record>
-
-
     <record id="action_society_settings" model="ir.actions.act_window">
         <field name="name">settings</field>
         <field name="res_model">society.settings</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="view_settings_form"/>
     </record>
+
+<!--                   Society Settings                      -->
+
+    <record id="view_society_settings_form" model="ir.ui.view">
+        <field name="name">society_settings</field>
+        <field name="model">society_society.settings</field>
+        <field name="arch" type="xml">
+            <form string="society_settings">
+                <sheet>
+                <h3>App Settings</h3><br/>
+                <group>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="address"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_society_society_settings" model="ir.actions.act_window">
+        <field name="name">society_settings</field>
+        <field name="res_model">society_society.settings</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_society_settings_form"/>
+    </record>
+
+
 </odoo>

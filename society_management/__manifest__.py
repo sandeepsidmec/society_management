@@ -10,8 +10,9 @@
         "views/apartment.xml",
         "views/floor.xml",
         "views/parking.xml",
+        "settings/apartment_type_settings.xml",
+        "settings/asset_category_settings.xml",
         "views/menu.xml",
-
     ]
 
 }
