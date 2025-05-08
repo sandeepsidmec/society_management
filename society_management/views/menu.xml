@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="society_management" name="Society"/>
+    <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100"/>
+    <menuitem id="society_management_app_settings" name="App Settings" action="action_society_settings" parent="society_management_settings"/>
+</odoo>
