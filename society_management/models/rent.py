@@ -42,6 +42,6 @@ class Rent(models.Model):
     @api.onchange("r_apart_num")
     def onchange_r_apart_num(self):
         for i in self:
-            # i.r_tenant_name = i.r_tenant_name
+            i.r_tenant_name = i.r_tenant_name
             i.r_month=datetime.now().strftime('%B')
             i.r_year=str(datetime.now().year)

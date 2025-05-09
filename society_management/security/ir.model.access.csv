@@ -11,6 +11,9 @@ access_society_apartment,access_society_apartment,model_society_apartment,,1,1,1
 access_society_floor,access_society_floor,model_society_floor,,1,1,1,1
 access_society_parking,access_society_parking,model_society_parking,,1,1,1,1
 
+access_society_amenities,access_society_amenities,model_society_amenities,,1,1,1,1
+access_society_book_amenities,access_society_book_amenities,model_society_book_amenities,,1,1,1,1
+
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
 access_society_society_settings,society_society_settings,model_society_society_settings,,1,1,1,1
 access_apartment_type_settings,society_apartment_type_settings,model_apartment_type_settings,,1,1,1,1

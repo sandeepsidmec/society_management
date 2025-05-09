@@ -12,6 +12,8 @@
         "views/floor.xml",
         "views/parking.xml",
         "views/owner.xml",
+        "views/amenity.xml",
+        "views/book_amenity.xml",
         "settings/apartment_type_settings.xml",
         "settings/asset_category_settings.xml",
         "views/menu.xml",

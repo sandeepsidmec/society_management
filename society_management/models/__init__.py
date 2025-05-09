@@ -10,3 +10,6 @@ from . import floor
 from . import parking
 
 from . import owner
+
+from . import amenities
+from . import book_amenity
