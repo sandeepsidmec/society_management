@@ -19,4 +19,9 @@
     <menuitem id="society_management_society_settings" name="Society Settings" action="action_society_society_settings" parent="society_management_settings"/>
     <menuitem id="society_management_apartment_type_settings" name="Apartment Type Settings" action="action_apartment_type_settings" parent="society_management_settings"/>
     <menuitem id="society_management_asset_category_settings" name="Asset Category Settings" action="action_asset_category_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_bill_type_settings" name="Bill Type Settings" action="action_bill_type_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_ticket_type_settings" name="Ticket Type Settings" action="action_ticket_type_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_currency_settings" name="Currency Settings" action="action_currency_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_maintenance_settings" name="Maintenance Settings" action="action_maintenance_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_visitor_settings" name="Visitor Settings" action="action_visitor_type_settings" parent="society_management_settings"/>
 </odoo>

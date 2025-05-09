@@ -12,6 +12,11 @@
         "views/parking.xml",
         "settings/apartment_type_settings.xml",
         "settings/asset_category_settings.xml",
+        "settings/bill_type_settings.xml",
+        "settings/ticket_type.xml",
+        "settings/currency_settings.xml",
+        "settings/maintenance_settings.xml",
+        "settings/visitors_type_settings.xml",
         "views/menu.xml",
     ]
 
