@@ -15,6 +15,12 @@ access_society_amenities,access_society_amenities,model_society_amenities,,1,1,1
 access_society_book_amenities,access_society_book_amenities,model_society_book_amenities,,1,1,1,1
 
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
-access_society_society_settings,society_society_settings,model_society_society_settings,,1,1,1,1
-access_apartment_type_settings,society_apartment_type_settings,model_apartment_type_settings,,1,1,1,1
-access_asset_category_settings,society_asset_category_settings,model_asset_category_settings,,1,1,1,1
+access_society_society_settings,access_society_society_settings,model_society_society_settings,,1,1,1,1
+access_apartment_type_settings,access_apartment_type_settings,model_apartment_type_settings,,1,1,1,1
+access_asset_category_settings,access_asset_category_settings,model_asset_category_settings,,1,1,1,1
+access_bill_type_settings,access_bill_type_settings,model_bill_type_settings,,1,1,1,1
+access_ticket_type_settings,access_ticket_type_settings,model_ticket_type_settings,,1,1,1,1
+access_currency_settings,access_currency_settings,model_currency_settings,,1,1,1,1
+access_maintenance_settings,access_maintenance_settings,model_maintenance_settings,,1,1,1,1
+access_visitor_type_settings,access_visitor_type_settings,model_visitor_type_settings,,1,1,1,1
+
