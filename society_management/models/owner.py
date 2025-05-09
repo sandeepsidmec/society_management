@@ -1,0 +1,16 @@
+from odoo import models, fields
+
+class Owner(models.Model):
+    _name = 'society.owner'
+    _description = 'Society_Owner'
+    _rec_name = "o_name"
+
+
+    o_name= fields.Char(string=" Full Name", required=True)
+    o_email= fields.Char(string=" Email_address", required=True)
+    o_phone= fields.Integer(string=" Phone Number")
+    o_status= fields.Selection([('active', 'Active'), ('inactive', 'Inactive')],string="Status")
+    o_tower_id=fields.Many2one("society.tower","Select_Tower")
+    o_floor_id=fields.Many2one("society.floor","Select_Floor")
+    Owner_apart=fields.Many2many("society.apartment",string="Apartment Number")
+    o_photo=fields.Binary("photo_upload")

@@ -12,9 +12,9 @@
                         <field name="apart_num"/>
                         <field name="parking_id"/>
                         <field name="apart_area"/>
-                        <!--                        <field name="apart_type"/>-->
+                        <field name="apart_type"/>
                         <field name="apart_status"/>
-                        <!--                        <field name="owner_id"/>-->
+                        <field name="owner_id"/>
 
                     </group>
                 </sheet>
@@ -29,8 +29,10 @@
                 <field name="apart_num"/>
                 <field name="apart_area"/>
                 <field name="apart_status"/>
+                <field name="apart_type"/>
                 <field name="tower_id"/>
                 <field name="floor_id"/>
+
 
             </list>
         </field>

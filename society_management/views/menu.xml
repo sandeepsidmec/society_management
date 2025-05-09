@@ -4,11 +4,13 @@
 
     <menuitem id="society_management_user" name="User" action="action_society_user" parent="society_management" sequence="1"/>
 
-    <menuitem id="tenant" name="Tenant" parent="society_management" sequence="2"/>
-    <menuitem id="tenants" name="Tenant" parent="tenant" action="action_society_tenant"/>
-<!--    <menuitem id="rent" name="Rent" parent="tenant" action=""/>-->
+    <menuitem id="owner" name="Owner" action="action_society_owner" parent="society_management" sequence="2"/>
 
-    <menuitem id="apart" name="Apartment" parent="society_management" sequence="3"/>
+    <menuitem id="tenant" name="Tenant" parent="society_management" sequence="3"/>
+    <menuitem id="tenants" name="Tenant" parent="tenant" action="action_society_tenant"/>
+    <menuitem id="rent" name="Rent" parent="tenant" action="action_society_rent"/>
+
+    <menuitem id="apart" name="Apartment" parent="society_management" sequence="4"/>
     <menuitem id="tower" name="Tower" parent="apart" action="action_society_tower"/>
     <menuitem id="floor" name="Floor" parent="apart" action="action_society_floor"/>
     <menuitem id="apartment" name="Apartment" parent="apart" action="action_society_apartment"/>

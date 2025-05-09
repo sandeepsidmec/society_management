@@ -1,10 +1,16 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_society_user,access_society_user,model_society_user,,1,1,1,1
+
+access_society_owner,access_society_owner,model_society_owner,,1,1,1,1
+
 access_society_tenant,access_society_tenant,model_society_tenant,,1,1,1,1
+access_society_rent,access_society_rent,model_society_rent,,1,1,1,1
+
 access_society_tower,access_society_tower,model_society_tower,,1,1,1,1
 access_society_apartment,access_society_apartment,model_society_apartment,,1,1,1,1
 access_society_floor,access_society_floor,model_society_floor,,1,1,1,1
 access_society_parking,access_society_parking,model_society_parking,,1,1,1,1
+
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
 access_society_society_settings,society_society_settings,model_society_society_settings,,1,1,1,1
 access_apartment_type_settings,society_apartment_type_settings,model_apartment_type_settings,,1,1,1,1
