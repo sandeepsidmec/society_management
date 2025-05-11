@@ -1,6 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_society_user,access_society_user,model_society_user,,1,1,1,1
-
 access_society_owner,access_society_owner,model_society_owner,,1,1,1,1
 
 access_society_tenant,access_society_tenant,model_society_tenant,,1,1,1,1
@@ -13,6 +12,10 @@ access_society_parking,access_society_parking,model_society_parking,,1,1,1,1
 
 access_society_amenities,access_society_amenities,model_society_amenities,,1,1,1,1
 access_society_book_amenities,access_society_book_amenities,model_society_book_amenities,,1,1,1,1
+
+access_society_utility,access_society_utility,model_society_utility,,1,1,1,1
+access_society_common_area,access_society_common_area,model_society_common_area,,1,1,1,1
+access_society_maintenance,access_society_maintenance,model_society_maintenance,,1,1,1,1
 
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
 access_society_society_settings,access_society_society_settings,model_society_society_settings,,1,1,1,1

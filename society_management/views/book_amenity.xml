@@ -4,7 +4,7 @@
         <field name="name">book_amenities</field>
         <field name="model">society.book_amenities</field>
         <field name="arch" type="xml">
-            <form string="book_amenities">
+            <form string="Book Amenities">
                 <sheet>
                     <group>
 
@@ -21,7 +21,7 @@
         <field name="name">book_amenities</field>
         <field name="model">society.book_amenities</field>
         <field name="arch" type="xml">
-            <list string="book_amenities">
+            <list string="Book Amenities">
                 <field name="b_amenity_name"/>
                 <field name="booking_date"/>
 
@@ -30,7 +30,7 @@
     </record>
 
     <record id="action_society_book_amenities" model="ir.actions.act_window">
-        <field name="name">amenities</field>
+        <field name="name">Book Amenities</field>
         <field name="res_model">society.book_amenities</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_book_amenities_list"/>

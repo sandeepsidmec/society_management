@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_common_form" model="ir.ui.view">
+        <field name="name">Common Bills</field>
+        <field name="model">society.common_area</field>
+        <field name="arch" type="xml">
+            <form string="Common Area Bills">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="c_bill_type"/>
+                            <field name="c_bill_date"/>
+                              <field name="c_bill_amt"/>
+                        </group>
+                        <group>
+                            <field name="c_due_date"/>
+                            <field name="c_bill"/>
+                            <field name="c_status"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_common_list" model="ir.ui.view">
+        <field name="name">Common Bills</field>
+        <field name="model">society.common_area</field>
+        <field name="arch" type="xml">
+            <list string="Common Area Bills">
+                <field name="c_bill_type"/>
+                <field name="c_bill_date"/>
+                <field name="c_status"/>
+                <field name="c_bill_payment"/>
+
+
+            </list>
+        </field>
+    </record>
+
+    <record id="action_society_common" model="ir.actions.act_window">
+        <field name="name">Common Bills</field>
+        <field name="res_model">society.common_area</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_common_list"/>
+    </record>
+
+</odoo>
