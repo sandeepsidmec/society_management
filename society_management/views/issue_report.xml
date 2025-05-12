@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_issue_report_form" model="ir.ui.view">
+        <field name="name">issue_report</field>
+        <field name="model">society.issue_report</field>
+        <field name="arch" type="xml">
+            <form string="issue_report">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="asset"/>
+                            <field name="issue_title"/>
+                            <field name="state"/>
+                        </group>
+                        <group>
+
+
+                            <field name="priority"/>
+                            <field name="description"/>
+                            <field name="image"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_issue_report_list" model="ir.ui.view">
+        <field name="name">issue_report</field>
+        <field name="model">society.issue_report</field>
+        <field name="arch" type="xml">
+            <list string="issue_report">
+                <field name="issue_title"/>
+                <field name="asset"/>
+                <field name="state"/>
+                <field name="priority"/>
+
+            </list>
+        </field>
+    </record>
+
+    <record id="action_society_issue_report" model="ir.actions.act_window">
+        <field name="name">Issue Report</field>
+        <field name="res_model">society.issue_report</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_issue_report_list"/>
+    </record>
+
+</odoo>

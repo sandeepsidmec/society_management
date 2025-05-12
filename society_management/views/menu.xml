@@ -28,7 +28,7 @@
     <menuitem id="menu_assets" name="Assets" parent="society_management" sequence="7"/>
     <menuitem id="assets" name="Assets" parent="menu_assets" action="action_society_assets"/>
     <menuitem id="schedule" name="Maintenance Schedule" parent="menu_assets" action="action_society_m_schedule"/>
-<!--    <menuitem id="" name="" parent="" action=""/>-->
+    <menuitem id="issue" name="Issue Report" parent="menu_assets" action="action_society_issue_report"/>
 
     <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100"/>
     <menuitem id="society_management_app_settings" name="App Settings" action="action_society_settings"

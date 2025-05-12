@@ -20,6 +20,7 @@
         "views/offline_req.xml",
         "views/assets.xml",
         "views/m_schedule.xml",
+        "views/issue_report.xml",
         "settings/apartment_type_settings.xml",
         "settings/asset_category_settings.xml",
         "settings/bill_type_settings.xml",
