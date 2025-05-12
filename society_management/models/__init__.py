@@ -21,3 +21,4 @@ from . import maintenance_bills
 from . import offline_req
 from . import assets
 from . import maintenance_schedule
+from . import issue_report

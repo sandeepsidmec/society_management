@@ -20,6 +20,7 @@ access_society_maintenance,access_society_maintenance,model_society_maintenance,
 access_society_offline,access_society_offline,model_society_offline,,1,1,1,1
 access_society_assets,access_society_assets,model_society_assets,,1,1,1,1
 access_society_m_schedule,access_society_m_schedule,model_society_m_schedule,,1,1,1,1
+access_society_issue_report,access_society_issue_report,model_society_issue_report,,1,1,1,1
 
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
 access_society_society_settings,access_society_society_settings,model_society_society_settings,,1,1,1,1

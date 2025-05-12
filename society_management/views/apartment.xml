@@ -32,12 +32,11 @@
         <field name="arch" type="xml">
             <list string="Apartment">
                 <field name="apart_num"/>
-                <field name="apart_area" optional="True"/>
+                <field name="l_apart_area"/>
                 <field name="apart_status"/>
                 <field name="apart_type"/>
                 <field name="tower_id"/>
                 <field name="floor_id"/>
-                <field name="parking_id" optional="True"/>
 
 
             </list>
