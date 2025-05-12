@@ -7,10 +7,11 @@ class UtilityBills(models.Model):
     _rec_name = 'u_bill_type'
 
     u_apart_num=fields.Many2one("society.apartment","Apartment Type")
-    u_bill_type=fields.Many2one("bill.type.settings","Bill Type",domain=[('bill_type_category',"=",'utility bills')])
+    u_bill_type=fields.Many2one("bill.type.settings","Bill Type",domain=[('bill_type_category', '=', 'utility')])
     u_bill_date = fields.Date("Bill Date")
     u_bill_amt = fields.Float("Bill Amount")
     u_due_date=fields.Date("Bill Due Date")
     u_bill=fields.Binary("Upload bill")
     u_status = fields.Selection([('paid', 'Paid'), ('unpaid', 'Unpaid')],"Status",default="unpaid")
     u_bill_payment=fields.Date("Bill Payment Date")
+

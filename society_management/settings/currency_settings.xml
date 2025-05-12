@@ -33,7 +33,7 @@
     </record>
 
     <record id="action_currency_settings" model="ir.actions.act_window">
-        <field name="name">currency_settings</field>
+        <field name="name">Currency Settings</field>
         <field name="res_model">currency.settings</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_currency_settings_list"/>

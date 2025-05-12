@@ -4,16 +4,30 @@
         <field name="name">""</field>
         <field name="model">society.maintenance</field>
         <field name="arch" type="xml">
-            <form string="">
+            <form string="Maintenance">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,publish"/>
+                    <button name="action_publish" type="object" string="Publish"
+                            class="btn-primary"/>
+                    <button name="action_draft" type="object" string="Set to Draft"
+                             class="btn-secondary" invisible="state == 'publish'"/>
+                </header>
+
                 <sheet>
                     <group>
-                        <group>
-
-                        </group>
-                        <group>
-
-                        </group>
-
+                        <field name="m_year"/>
+                        <field name="m_month"/>
+                        <field name="payment_due"/>
+                    </group>
+                    <group>
+                        <button name="toggle_add_cost_fields"
+                                type="object"
+                                string="Add Additional Cost"
+                                class="btn-primary"/>
+                    </group>
+                    <group>
+                        <field name="cost_title" invisible="show_additional_cost != True"/>
+                        <field name="cost_amount" invisible="show_additional_cost != True"/>
                     </group>
                 </sheet>
             </form>
@@ -23,9 +37,10 @@
         <field name="name">""</field>
         <field name="model">society.maintenance</field>
         <field name="arch" type="xml">
-            <list string="">
-
-
+            <list string="Maintenance">
+                <field name="m_year"/>
+                <field name="m_month"/>
+                <field name="add_cost"/>
             </list>
         </field>
     </record>

@@ -27,7 +27,7 @@
     </record>
 
     <record id="action_bill_type_settings" model="ir.actions.act_window">
-        <field name="name">bill_settings</field>
+        <field name="name">Bill Settings</field>
         <field name="res_model">bill.type.settings</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_bill_type_settings_list"/>

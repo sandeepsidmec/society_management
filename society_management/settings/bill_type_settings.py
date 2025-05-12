@@ -6,4 +6,7 @@ class BillTypeSettings(models.Model):
     _rec_name = "bill_type"
 
     bill_type = fields.Char("Bill Type")
-    bill_type_category = fields.Char("Bill Type Category")
+    bill_type_category = fields.Selection([
+        ('utility', 'Utility Bills'),
+        ('common_area', 'Common Area Bills')
+    ], string="Bill Type Category")
