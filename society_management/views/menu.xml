@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <menuitem id="society_management" name="Society"/>
-
-    <menuitem id="society_management_user" name="User" action="action_society_user" parent="society_management" sequence="1"/>
-
+    <menuitem id="society_management_user" name="User" action="action_society_user" parent="society_management"
+              sequence="1"/>
     <menuitem id="owner" name="Owner" action="action_society_owner" parent="society_management" sequence="2"/>
 
     <menuitem id="tenant" name="Tenant" parent="society_management" sequence="3"/>
@@ -20,14 +19,34 @@
     <menuitem id="amenity" name="Amenities" parent="amenities" action="action_society_amenities"/>
     <menuitem id="book_amenity" name="Book Amenities" parent="amenities" action="action_society_book_amenities"/>
 
+    <menuitem id="bills" name="Bills" parent="society_management" sequence="6"/>
+    <menuitem id="utility" name="Utility Bills" parent="bills" action="action_society_utility"/>
+    <menuitem id="common" name="Common Area Bills" parent="bills" action="action_society_common"/>
+    <menuitem id="maintenance" name="Maintenance" parent="bills" action="action_society_maintenance"/>
+
+    <menuitem id="offline" name="Offline Request" parent="society_management" action="action_society_offline" sequence="7"/>
+    <menuitem id="menu_assets" name="Assets" parent="society_management" sequence="7"/>
+    <menuitem id="assets" name="Assets" parent="menu_assets" action="action_society_assets"/>
+    <menuitem id="schedule" name="Maintenance Schedule" parent="menu_assets" action="action_society_m_schedule"/>
+<!--    <menuitem id="" name="" parent="" action=""/>-->
+
     <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100"/>
-    <menuitem id="society_management_app_settings" name="App Settings" action="action_society_settings" parent="society_management_settings"/>
-    <menuitem id="society_management_society_settings" name="Society Settings" action="action_society_society_settings" parent="society_management_settings"/>
-    <menuitem id="society_management_apartment_type_settings" name="Apartment Type Settings" action="action_apartment_type_settings" parent="society_management_settings"/>
-    <menuitem id="society_management_asset_category_settings" name="Asset Category Settings" action="action_asset_category_settings" parent="society_management_settings"/>
-    <menuitem id="society_management_bill_type_settings" name="Bill Type Settings" action="action_bill_type_settings" parent="society_management_settings"/>
-    <menuitem id="society_management_ticket_type_settings" name="Ticket Type Settings" action="action_ticket_type_settings" parent="society_management_settings"/>
-    <menuitem id="society_management_currency_settings" name="Currency Settings" action="action_currency_settings" parent="society_management_settings"/>
-    <menuitem id="society_management_maintenance_settings" name="Maintenance Settings" action="action_maintenance_settings" parent="society_management_settings"/>
-    <menuitem id="society_management_visitor_settings" name="Visitor Settings" action="action_visitor_type_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_app_settings" name="App Settings" action="action_society_settings"
+              parent="society_management_settings"/>
+    <menuitem id="society_management_society_settings" name="Society Settings" action="action_society_society_settings"
+              parent="society_management_settings"/>
+    <menuitem id="society_management_apartment_type_settings" name="Apartment Type Settings"
+              action="action_apartment_type_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_asset_category_settings" name="Asset Category Settings"
+              action="action_asset_category_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_bill_type_settings" name="Bill Type Settings" action="action_bill_type_settings"
+              parent="society_management_settings"/>
+    <menuitem id="society_management_ticket_type_settings" name="Ticket Type Settings"
+              action="action_ticket_type_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_currency_settings" name="Currency Settings" action="action_currency_settings"
+              parent="society_management_settings"/>
+    <menuitem id="society_management_maintenance_settings" name="Maintenance Settings"
+              action="action_maintenance_settings" parent="society_management_settings"/>
+    <menuitem id="society_management_visitor_settings" name="Visitor Settings" action="action_visitor_type_settings"
+              parent="society_management_settings"/>
 </odoo>

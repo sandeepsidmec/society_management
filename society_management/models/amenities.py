@@ -1,6 +1,6 @@
 
 from odoo import models, fields,api
-from datetime import datetime
+
 
 class Amenities(models.Model):
     _name = 'society.amenities'

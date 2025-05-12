@@ -4,20 +4,22 @@
         <field name="name">amenities</field>
         <field name="model">society.amenities</field>
         <field name="arch" type="xml">
-            <form string="amenities">
+            <form string="Amenities">
                 <sheet>
                     <group>
+                        <group>
+                            <field name="amenity_name"/>
+                            <field name="amenity_status"/>
+                            <field name="booking_req" invisible="amenity_status != 'available'"/>
+                            <field name="start_time" invisible="booking_req==False"/>
+                            <field name="end_time" invisible="booking_req==False"/>
+                        </group>
+                        <group>
+                            <field name="slot_time" invisible="booking_req==False"/>
+                            <field name="mul_booking" invisible="booking_req==False"/>
+                            <field name="no_of_per" invisible="mul_booking==False"/>
 
-                        <field name="amenity_name"/>
-                        <field name="amenity_status"/>
-                        <field name="booking_req" invisible="amenity_status != 'available'"/>
-                        <field name="start_time" invisible="booking_req==False"/>
-                        <field name="end_time" invisible="booking_req==False"/>
-                        <field name="slot_time" invisible="booking_req==False"/>
-                        <field name="mul_booking" invisible="booking_req==False"/>
-                        <field name="no_of_per" invisible="mul_booking==False"/>
-
-
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -27,7 +29,7 @@
         <field name="name">amenities</field>
         <field name="model">society.amenities</field>
         <field name="arch" type="xml">
-            <list string="amenities">
+            <list string="Amenities">
                 <field name="amenity_name"/>
                 <field name="amenity_status"/>
                 <field name="l_booking_req"/>
@@ -40,7 +42,7 @@
     </record>
 
     <record id="action_society_amenities" model="ir.actions.act_window">
-        <field name="name">amenities</field>
+        <field name="name">Amenities</field>
         <field name="res_model">society.amenities</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_amenities_list"/>

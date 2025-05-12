@@ -4,18 +4,21 @@
         <field name="name">owner</field>
         <field name="model">society.owner</field>
         <field name="arch" type="xml">
-            <form string="owner">
+            <form string="Owner">
                 <sheet>
                     <group>
-                        <field name="o_name"/>
-                        <field name="o_email"/>
-                        <field name="o_phone"/>
-                        <field name="o_status"/>
-                        <field name="o_tower_id"/>
-                        <field name="o_floor_id"/>
-                        <field name="Owner_apart" widget="many2many_tags"/>
-                        <field name="o_photo"/>
-
+                        <group>
+                            <field name="o_name"/>
+                            <field name="o_email"/>
+                            <field name="o_phone"/>
+                            <field name="o_status"/>
+                        </group>
+                        <group>
+                            <field name="o_tower_id"/>
+                            <field name="o_floor_id"/>
+                            <field name="Owner_apart" widget="many2many_tags"/>
+                            <field name="o_photo"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -25,7 +28,7 @@
         <field name="name">owner</field>
         <field name="model">society.owner</field>
         <field name="arch" type="xml">
-            <list string="owner">
+            <list string="Owner">
                 <field name="o_name"/>
                 <field name="o_email"/>
                 <field name="o_phone"/>
@@ -37,7 +40,7 @@
     </record>
 
     <record id="action_society_owner" model="ir.actions.act_window">
-        <field name="name">owner</field>
+        <field name="name">Owner</field>
         <field name="res_model">society.owner</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_owner_list"/>

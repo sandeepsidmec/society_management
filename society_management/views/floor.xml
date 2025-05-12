@@ -4,7 +4,7 @@
         <field name="name">floor</field>
         <field name="model">society.floor</field>
         <field name="arch" type="xml">
-            <form string="floor">
+            <form string="Floor">
                 <sheet>
                     <group>
                         <field name="floor"/>
@@ -19,7 +19,7 @@
         <field name="name">floor</field>
         <field name="model">society.floor</field>
         <field name="arch" type="xml">
-            <list string="floor">
+            <list string="Floor">
                 <field name="floor"/>
                 <field name="tower_id"/>
                 <!--                <field name="no_of_apart"/>-->
@@ -29,7 +29,7 @@
     </record>
 
     <record id="action_society_floor" model="ir.actions.act_window">
-        <field name="name">floor</field>
+        <field name="name">Floor</field>
         <field name="res_model">society.floor</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_floor_list"/>

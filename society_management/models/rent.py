@@ -5,6 +5,7 @@ from datetime import datetime
 class Rent(models.Model):
     _name = 'society.rent'
     _description = 'Society_Rent'
+    _rec_name = "r_apart_num"
 
 
     r_apart_num=fields.Many2one("society.apartment","Apartment Number")

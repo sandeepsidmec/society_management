@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_utility_form" model="ir.ui.view">
+        <field name="name">Utility Bills</field>
+        <field name="model">society.utility</field>
+        <field name="arch" type="xml">
+            <form string="Utility Bills">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="u_apart_num"/>
+                            <field name="u_bill_type"/>
+                             <field name="u_bill_amt"/>
+                            <field name="u_bill_date"/>
+                        </group>
+                        <group>
+                            <field name="u_due_date"/>
+                            <field name="u_bill"/>
+                            <field name="u_status"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_utility_list" model="ir.ui.view">
+        <field name="name">Utility Bills</field>
+        <field name="model">society.utility</field>
+        <field name="arch" type="xml">
+            <list string="Utility Bills">
+                <field name="u_apart_num"/>
+                <field name="u_bill_type"/>
+                <field name="u_bill_date"/>
+                <field name="u_status"/>
+                <field name="u_bill_payment"/>
+
+
+            </list>
+        </field>
+    </record>
+
+    <record id="action_society_utility" model="ir.actions.act_window">
+        <field name="name">Utility Bills</field>
+        <field name="res_model">society.utility</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_utility_list"/>
+    </record>
+
+</odoo>
