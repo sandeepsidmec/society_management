@@ -8,7 +8,7 @@
                 <sheet>
                     <group>
                         <field name="tower_name"/>
-
+                        <field name="no_of_apart"/>
                     </group>
                 </sheet>
             </form>
@@ -20,7 +20,7 @@
         <field name="arch" type="xml">
             <list string="tower">
                 <field name="tower_name"/>
-<!--                <field name="no_of_apart"/>-->
+                <field name="no_of_apart"/>
 
             </list>
         </field>
