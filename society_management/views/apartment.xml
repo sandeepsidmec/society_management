@@ -5,6 +5,15 @@
         <field name="model">society.apartment</field>
         <field name="arch" type="xml">
             <form string="Apartment">
+                <header>
+                    <field name="apart_status" widget="statusbar" statusbar_visible="unsold,occupied,availabe_for_rent"/>
+                    <button name="action_unsold" type="object" string="Unsold"
+                            class="btn-primary" invisible="apart_status != 'availabe_for_rent'"/>
+                    <button name="action_occupied" type="object" string="Occupied"
+                             class="btn-primary" invisible="apart_status == 'occupied'"/>
+                    <button name="action_availabe_for_rent" type="object" string="Availabe_for_rent"
+                            class="btn-primary" invisible="apart_status != 'unsold'"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -17,7 +26,6 @@
                         <group>
                             <field name="apart_area"/>
                             <field name="apart_type"/>
-                            <field name="apart_status"/>
                             <field name="owner_id"/>
 
                         </group>
@@ -33,7 +41,7 @@
             <list string="Apartment">
                 <field name="apart_num"/>
                 <field name="l_apart_area"/>
-                <field name="apart_status"/>
+                <field name="apart_status" widget="badge"/>
                 <field name="apart_type"/>
                 <field name="tower_id"/>
                 <field name="floor_id"/>

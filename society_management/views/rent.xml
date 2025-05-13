@@ -5,6 +5,13 @@
         <field name="model">society.rent</field>
         <field name="arch" type="xml">
             <form string="Rent">
+                <header>
+                    <field name="r_status" widget="statusbar" statusbar_visible="paid,unpaid"/>
+                    <button name="action_paid" type="object" string="Paid"
+                            class="btn-primary" invisible="r_status == 'paid'"/>
+                    <button name="action_unpaid" type="object" string="Unpaid"
+                            class="btn-secondary" invisible="r_status == 'paid'"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -31,7 +38,7 @@
                 <field name="r_tenant_name"/>
                 <field name="rent_for"/>
                 <field name="formatted_rent_amt"/>
-                <field name="r_status"/>
+                <field name="r_status" widget="badge"/>
                 <field name="r_date"/>
 
 

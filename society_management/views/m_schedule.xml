@@ -5,6 +5,15 @@
         <field name="model">society.m_schedule</field>
         <field name="arch" type="xml">
             <form string="m_schedule">
+                 <header>
+                    <field name="m_status" widget="statusbar" statusbar_visible="pending,completed,overdue"/>
+                    <button name="action_pending" type="object" string="Pending"
+                            class="btn-primary" invisible="m_status != 'overdue'"/>
+                    <button name="action_completed" type="object" string="Completed"
+                             class="btn-primary" invisible="m_status == 'completed'"/>
+                    <button name="action_overdue" type="object" string="Overdue"
+                            class="btn-primary" invisible="m_status != 'pending'"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -30,7 +39,7 @@
         <field name="arch" type="xml">
             <list string="m_schedule">
                 <field name="m_asset_name"/>
-                <field name="m_status"/>
+                <field name="m_status" widget="badge"/>
                 <field name="m_amt"/>
 
 

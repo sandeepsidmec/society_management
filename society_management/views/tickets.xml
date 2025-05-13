@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_ticket_form" model="ir.ui.view">
+        <field name="name">Ticket</field>
+        <field name="model">society.ticket</field>
+        <field name="arch" type="xml">
+            <form string="Ticket">
+                 <header>
+                    <field name="status" widget="statusbar" statusbar_visible="open,pending,resolved,closed"/>
+                    <button name="action_open" type="object" string="Open"
+                            class="btn-primary" invisible="status == 'open'"/>
+                    <button name="action_pending" type="object" string="Pending"
+                             class="btn-primary" invisible="status == 'pending'"/>
+                    <button name="action_resolved" type="object" string="Resolved"
+                            class="btn-primary" invisible="status == 'resolved'"/>
+                     <button name="action_closed" type="object" string="Closed"
+                            class="btn-primary" invisible="status == 'closed'"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="t_name"/>
+                            <field name="type"/>
+                            <field name="owner"/>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                            <field name="subject"/>
+                            <field name="description"/>
+                            <field name="file"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_ticket_list" model="ir.ui.view">
+        <field name="name">Ticket</field>
+        <field name="model">society.ticket</field>
+        <field name="arch" type="xml">
+            <list string="Ticket">
+                <field name="subject"/>
+                <field name="t_name" string="Requester Name"/>
+                <field name="owner"/>
+                <field name="type" string="Ticket Type"/>
+                <field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_society_ticket" model="ir.actions.act_window">
+        <field name="name">Ticket</field>
+        <field name="res_model">society.ticket</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_ticket_list"/>
+    </record>
+
+</odoo>

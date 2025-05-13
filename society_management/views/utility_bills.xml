@@ -5,6 +5,13 @@
         <field name="model">society.utility</field>
         <field name="arch" type="xml">
             <form string="Utility Bills">
+                <header>
+                    <field name="u_status" widget="statusbar" statusbar_visible="paid,unpaid"/>
+                    <button name="action_paid" type="object" string="Paid"
+                            class="btn-primary" invisible="u_status != 'unpaid'"/>
+                    <button name="action_unpaid" type="object" string="Unpaid"
+                             class="btn-secondary" invisible="u_status != 'paid'"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -32,7 +39,7 @@
                 <field name="u_apart_num"/>
                 <field name="u_bill_type"/>
                 <field name="u_bill_date"/>
-                <field name="u_status"/>
+                <field name="u_status" widget="badge"/>
                 <field name="u_bill_payment" optional="True"/>
                 <field name="u_due_date" optional="True"/>
             </list>

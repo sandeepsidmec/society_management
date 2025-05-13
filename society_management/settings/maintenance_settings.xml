@@ -11,14 +11,26 @@
                     </group>
                     <group>
                         <group>
-                            <field name="apartment_type" invisible="cost_type != 'fixed'"/>
                             <field name="unit_name" invisible="cost_type != 'unit'"/>
                         </group>
                         <group>
-                            <field name="unit_value" invisible="cost_type != 'fixed'"/>
                             <field name="unit_value2" invisible="cost_type != 'unit'"/>
                         </group>
                     </group>
+                    <notebook invisible="cost_type != 'fixed'">
+                        <page>
+                            <field name="maintenance_lines">
+                                <list editable="bottom">
+                                    <field name="apartment_type"/>
+                                    <field name="unit_value"/>
+                                </list>
+                                <form>
+                                    <field name="apartment_type"/>
+                                    <field name="unit_value"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

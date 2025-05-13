@@ -32,7 +32,7 @@ class OfflineReq(models.Model):
     status = fields.Selection([
         ('paid', 'Paid'),
         ('unpaid', 'Unpaid')
-    ], string="Status", default='paid')
+    ], string="Status", default='unpaid')
 
 
 
@@ -80,4 +80,12 @@ class OfflineReq(models.Model):
             self.env["society.rent"].create(vals)
 
             rec.status = 'paid'  # update status on the wizard or source model
+
+    def action_paid(self):
+        for record in self:
+            record.status = 'paid'
+
+    def action_unpaid(self):
+        for record in self:
+            record.status = 'unpaid'
 
