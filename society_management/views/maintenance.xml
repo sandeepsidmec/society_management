@@ -8,9 +8,9 @@
                 <header>
                     <field name="state" widget="statusbar" statusbar_visible="draft,publish"/>
                     <button name="action_publish" type="object" string="Publish"
-                            class="btn-primary"/>
+                            class="btn-primary" invisible="state != 'draft'"/>
                     <button name="action_draft" type="object" string="Set to Draft"
-                             class="btn-secondary" invisible="state == 'publish'"/>
+                             class="btn-secondary" invisible="state != 'publish'"/>
                 </header>
 
                 <sheet>
@@ -41,6 +41,8 @@
                 <field name="m_year"/>
                 <field name="m_month"/>
                 <field name="add_cost"/>
+                <field name="payment_due" optional="Hide"/>
+                <field name="state" widget="badge"/>
             </list>
         </field>
     </record>

@@ -12,6 +12,14 @@ class UtilityBills(models.Model):
     u_bill_amt = fields.Float("Bill Amount")
     u_due_date=fields.Date("Bill Due Date")
     u_bill=fields.Binary("Upload bill")
-    u_status = fields.Selection([('paid', 'Paid'), ('unpaid', 'Unpaid')],"Status",default="unpaid")
+    u_status = fields.Selection([('paid', 'Paid'), ('unpaid', 'Unpaid')],"Status",default="paid")
     u_bill_payment=fields.Date("Bill Payment Date")
+
+    def action_paid(self):
+        for record in self:
+            record.u_status = 'paid'
+
+    def action_unpaid(self):
+        for record in self:
+            record.u_status = 'unpaid'
 

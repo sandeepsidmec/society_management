@@ -31,7 +31,7 @@
                 <field name="email"/>
                 <field name="phone"/>
                 <field name="role"/>
-                <field name="status"/>
+                <field name="status" widget="badge"/>
             </list>
         </field>
     </record>

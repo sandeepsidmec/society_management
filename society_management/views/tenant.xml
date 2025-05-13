@@ -5,6 +5,13 @@
         <field name="model">society.tenant</field>
         <field name="arch" type="xml">
             <form string="Tenant">
+                <header>
+                    <field name="t_status" widget="statusbar" statusbar_visible="active,inactive"/>
+                    <button name="action_active" type="object" string="Active"
+                            class="btn-primary"/>
+                    <button name="action_inactive" type="object" string="Inactive"
+                             class="btn-secondary"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -29,7 +36,7 @@
                 <field name="t_name"/>
                 <field name="t_email"/>
                 <field name="t_phone"/>
-                <field name="t_status"/>
+                <field name="t_status" widget="badge"/>
             </list>
         </field>
     </record>

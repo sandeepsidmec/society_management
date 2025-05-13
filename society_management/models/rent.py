@@ -61,3 +61,14 @@ class Rent(models.Model):
                 rec.formatted_rent_amt = f"{settings.currency_symbol}{formatted}"
             else:
                 rec.formatted_rent_amt = f"{formatted}{settings.currency_symbol}"
+
+
+    def action_paid(self):
+        for record in self:
+            record.r_status = 'paid'
+
+    def action_unpaid(self):
+        for record in self:
+            record.r_status = 'unpaid'
+
+

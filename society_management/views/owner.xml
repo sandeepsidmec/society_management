@@ -32,7 +32,7 @@
                 <field name="o_name"/>
                 <field name="o_email"/>
                 <field name="o_phone"/>
-                <field name="o_status"/>
+                <field name="o_status" widget="badge"/>
                 <field name="Owner_apart"/>
 
             </list>

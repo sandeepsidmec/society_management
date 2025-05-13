@@ -1,3 +1,4 @@
+from email.policy import default
 
 from odoo import models, fields
 
@@ -9,7 +10,7 @@ class Apartment(models.Model):
     apart_num=fields.Char("Apartment Number")
     apart_area = fields.Integer("Apartment area(sqft)")
     l_apart_area = fields.Char("Apartment area(sqft)",compute="area")
-    apart_status = fields.Selection([('unsold','Unsold'),('occupied','Occupied'),('available for rent','Available For Rent'),('rented','Rented')],"Apartment status")
+    apart_status = fields.Selection([('unsold','Unsold'),('availabe_for_rent','Available For Rent'),('occupied','Occupied')],"Apartment status",default='unsold')
     apart_type = fields.Many2one("apartment.type.settings","Apartment type")
     tower_id=fields.Many2one("society.tower","Tower_Name")
     parking_id=fields.Many2one("society.parking","Parking_code")
@@ -24,4 +25,16 @@ class Apartment(models.Model):
                 i.l_apart_area=f"{i.apart_area} {unit}"
             else:
                 i.l_apart_area = unit or ''
+
+    def action_unsold(self):
+        for record in self:
+            record.apart_status = 'unsold'
+
+    def action_occupied(self):
+        for record in self:
+            record.apart_status = 'occupied'
+
+    def action_availabe_for_rent(self):
+        for record in self:
+            record.apart_status = 'availabe_for_rent'
 

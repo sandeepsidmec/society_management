@@ -5,11 +5,17 @@
         <field name="model">society.amenities</field>
         <field name="arch" type="xml">
             <form string="Amenities">
+                 <header>
+                    <field name="amenity_status" widget="statusbar" statusbar_visible="available,not_available"/>
+                    <button name="action_available" type="object" string="Available"
+                            class="btn-primary" invisible="amenity_status != 'not_available'"/>
+                    <button name="action_not_available" type="object" string="Not Available"
+                             class="btn-secondary" invisible="amenity_status == 'not_available'"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
                             <field name="amenity_name"/>
-                            <field name="amenity_status"/>
                             <field name="booking_req" invisible="amenity_status != 'available'"/>
                             <field name="start_time" invisible="booking_req==False"/>
                             <field name="end_time" invisible="booking_req==False"/>
@@ -31,7 +37,7 @@
         <field name="arch" type="xml">
             <list string="Amenities">
                 <field name="amenity_name"/>
-                <field name="amenity_status"/>
+                <field name="amenity_status" widget="badge"/>
                 <field name="l_booking_req"/>
                 <field name="l_slot_time"/>
                 <field name="l_mul_booking"/>

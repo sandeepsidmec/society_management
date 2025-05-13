@@ -11,3 +11,15 @@ class IssueReport(models.Model):
     priority=fields.Selection([('low','Low'),('medium','Medium'),('high','High')],string='Priority')
     description=fields.Text("Issue Description")
     image=fields.Binary("Browse Image")
+
+    def action_pending(self):
+        for record in self:
+            record.state = 'pending'
+
+    def action_process(self):
+        for record in self:
+            record.state = 'process'
+
+    def action_resolved(self):
+        for record in self:
+            record.state = 'resolved'

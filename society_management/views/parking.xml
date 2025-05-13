@@ -5,11 +5,17 @@
         <field name="model">society.parking</field>
         <field name="arch" type="xml">
             <form string="Parking">
+                  <header>
+                    <field name="parking_status" widget="statusbar" statusbar_visible="allocated,not_allocated"/>
+                    <button name="action_allocated" type="object" string="Allocated"
+                            class="btn-primary" invisible="parking_status != 'not_allocated'"/>
+                    <button name="action_not_allocated" type="object" string="Not Allocated"
+                             class="btn-secondary" invisible="parking_status == 'not_allocated'"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="parking_code"/>
                           <field name="apart_id"/>
-
 
                     </group>
                 </sheet>
@@ -23,10 +29,7 @@
             <list string="Parking">
                 <field name="parking_code"/>
                   <field name="apart_id"/>
-                  <field name="parking_status"/>
-
-<!--                <field name="no_of_apart"/>-->
-
+                  <field name="parking_status" widget="badge"/>
             </list>
         </field>
     </record>
