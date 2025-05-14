@@ -11,6 +11,7 @@
                         <field name="no_of_apart"/>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>

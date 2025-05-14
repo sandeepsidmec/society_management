@@ -4,6 +4,7 @@ from odoo import models, fields
 class MaintenanceSettings(models.Model):
     _name = 'maintenance.settings'
     _rec_name = "cost_type"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
 
     cost_type = fields.Selection([('fixed','fixed_value'),('unit','unit_type')],"Cost Type")

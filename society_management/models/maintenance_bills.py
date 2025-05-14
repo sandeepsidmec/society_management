@@ -3,7 +3,9 @@ from odoo import models, fields,api
 class Maintenance(models.Model):
     _name = 'society.maintenance'
     _description = 'Society_Maintenance'
-    # _rec_name = 'amenity_name'
+    _rec_name = 'cost_title'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
 
     m_year = fields.Date("Year")
     m_month = fields.Date("Month")

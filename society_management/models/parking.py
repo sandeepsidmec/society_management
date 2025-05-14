@@ -5,6 +5,8 @@ class Parking(models.Model):
     _name = 'society.parking'
     _description = 'Society_Parking'
     _rec_name = 'parking_code'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
 
     parking_code=fields.Char("Parking Code")
     apart_id=fields.Many2one("society.apartment","Apartment Number")

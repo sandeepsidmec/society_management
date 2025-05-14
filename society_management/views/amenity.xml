@@ -28,6 +28,7 @@
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -43,6 +44,25 @@
                 <field name="l_mul_booking"/>
                 <field name="no_of_per" optional="True"/>
             </list>
+        </field>
+    </record>
+
+    <record id="view_society_amenities_search" model="ir.ui.view">
+        <field name="name">society.amenities.search</field>
+        <field name="model">society.amenities</field>
+        <field name="arch" type="xml">
+            <search string="Search amenities">
+                <field name="amenity_name"/>
+                <field name="amenity_status"/>
+                <separator/>
+                <filter string="Available" name="amenity_status" domain="[('amenity_status','=','available')]"/>
+                <filter string="Not Available" name="amenity_status" domain="[('amenity_status','=','not_available')]"/>
+                <separator/>
+                <group expand="0" string="Extended Filters">
+                    <filter string="Amenities" name="amenity_name" context="{'group_by':'amenity_name'}"/>
+                    <filter string="Status" name="amenity_status" context="{'group_by':'amenity_status'}"/>
+                </group>
+            </search>
         </field>
     </record>
 

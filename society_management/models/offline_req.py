@@ -5,10 +5,12 @@ from odoo.exceptions import UserError
 class OfflineReq(models.Model):
     _name = 'society.offline'
     _description = 'Society_Offline_Request'
-    _rec_name = "r_tenant_name"
+    _rec_name = "r_tenant_id"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    req_apart_num=fields.Many2one("society.apartment","Apartment Number")
-    r_tenant_name=fields.Many2one("society.tenant","Tenant Name")
+
+    req_apart_id=fields.Many2one("society.apartment","Apartment Number")
+    r_tenant_id=fields.Many2one("society.tenant","Tenant Name")
     tot_cost=fields.Integer("Total Cost")
     r_month = fields.Selection([
         ('January', 'January'),
@@ -58,7 +60,7 @@ class OfflineReq(models.Model):
 
             # Check if rent already paid
             existing_rent = self.env["society.rent"].search([
-                ('r_apart_num', '=', rec.req_apart_num.id),
+                ('r_apart_id', '=', rec.req_apart_id.id),
                 ('r_month', '=', rec.r_month),
                 ('r_year', '=', rec.r_year),
                 ('r_status', '=', 'paid')
@@ -69,11 +71,11 @@ class OfflineReq(models.Model):
 
             # If not paid, create a new rent record
             vals = {
-                'r_apart_num': rec.req_apart_num.id,
+                'r_apart_id': rec.req_apart_id.id,
                 'r_month': rec.r_month,
                 'r_year': rec.r_year,
                 'rent_amt': rec.tot_cost,
-                'r_tenant_name': rec.r_tenant_name.id,
+                'r_tenant_id': rec.r_tenant_id.id,
                 'r_date': fields.Date.today(),
                 'r_status': 'paid',  # explicitly marking it as paid
             }

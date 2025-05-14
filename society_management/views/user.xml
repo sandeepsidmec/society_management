@@ -8,7 +8,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name"/>
+                            <field name="user_id"/>
                             <field name="email"/>
                             <field name="phone"/>
                         </group>
@@ -19,6 +19,7 @@
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -27,7 +28,7 @@
         <field name="model">society.user</field>
         <field name="arch" type="xml">
             <list string="User">
-                <field name="name"/>
+                <field name="user_id"/>
                 <field name="email"/>
                 <field name="phone"/>
                 <field name="role"/>

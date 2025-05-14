@@ -17,7 +17,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="asset"/>
+                            <field name="asset_id"/>
                             <field name="issue_title"/>
                             <field name="state" />
                         </group>
@@ -30,6 +30,7 @@
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -39,7 +40,7 @@
         <field name="arch" type="xml">
             <list string="issue_report">
                 <field name="issue_title"/>
-                <field name="asset"/>
+                <field name="asset_id"/>
                 <field name="state" widget="badge"/>
                 <field name="priority"/>
 

@@ -17,7 +17,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="m_asset_name"/>
+                            <field name="m_asset_id"/>
                             <field name="m_date"/>
 
                         </group>
@@ -30,6 +30,7 @@
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -38,7 +39,7 @@
         <field name="model">society.m_schedule</field>
         <field name="arch" type="xml">
             <list string="m_schedule">
-                <field name="m_asset_name"/>
+                <field name="m_asset_id"/>
                 <field name="m_status" widget="badge"/>
                 <field name="m_amt"/>
 

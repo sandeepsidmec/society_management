@@ -4,6 +4,7 @@ from odoo import models, fields,api
 class CurrencySettings(models.Model):
     _name = 'currency.settings'
     _rec_name = "currency_id"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     currency_id = fields.Char("Currency")
     currency_symbol = fields.Char("Currency Symbol")

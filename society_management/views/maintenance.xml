@@ -30,6 +30,7 @@
                         <field name="cost_amount" invisible="show_additional_cost != True"/>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -40,6 +41,7 @@
             <list string="Maintenance">
                 <field name="m_year"/>
                 <field name="m_month"/>
+                <field name="cost_amount"/>
                 <field name="add_cost"/>
                 <field name="payment_due" optional="Hide"/>
                 <field name="state" widget="badge"/>

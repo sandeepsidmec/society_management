@@ -15,7 +15,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="t_name"/>
+                            <field name="tenant_id"/>
                             <field name="t_email"/>
                             <field name="t_phone"/>
                         </group>
@@ -25,6 +25,7 @@
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -33,7 +34,7 @@
         <field name="model">society.tenant</field>
         <field name="arch" type="xml">
             <list string="Tenant">
-                <field name="t_name"/>
+                <field name="tenant_id"/>
                 <field name="t_email"/>
                 <field name="t_phone"/>
                 <field name="t_status" widget="badge"/>

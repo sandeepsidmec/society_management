@@ -5,23 +5,28 @@
         <field name="model">society.ticket</field>
         <field name="arch" type="xml">
             <form string="Ticket">
-                 <header>
+                <header>
                     <field name="status" widget="statusbar" statusbar_visible="open,pending,resolved,closed"/>
                     <button name="action_open" type="object" string="Open"
                             class="btn-primary" invisible="status == 'open'"/>
                     <button name="action_pending" type="object" string="Pending"
-                             class="btn-primary" invisible="status == 'pending'"/>
+                            class="btn-primary" invisible="status == 'pending'"/>
                     <button name="action_resolved" type="object" string="Resolved"
                             class="btn-primary" invisible="status == 'resolved'"/>
-                     <button name="action_closed" type="object" string="Closed"
+                    <button name="action_closed" type="object" string="Closed"
                             class="btn-primary" invisible="status == 'closed'"/>
                 </header>
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
                     <group>
                         <group>
-                            <field name="t_name"/>
-                            <field name="type"/>
-                            <field name="owner"/>
+                            <field name="tenant_id"/>
+                            <field name="ticket_type_id"/>
+                            <field name="owner_id"/>
                         </group>
                         <group>
                             <field name="status"/>
@@ -31,6 +36,7 @@
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -40,13 +46,33 @@
         <field name="arch" type="xml">
             <list string="Ticket">
                 <field name="subject"/>
-                <field name="t_name" string="Requester Name"/>
-                <field name="owner"/>
-                <field name="type" string="Ticket Type"/>
+                <field name="tenant_id" string="Requester Name"/>
+                <field name="owner_id"/>
+                <field name="ticket_type_id" string="Ticket Type"/>
                 <field name="status" widget="badge"/>
             </list>
         </field>
     </record>
+
+    <record id="view_society_ticket_search" model="ir.ui.view">
+        <field name="name">society.ticket.search</field>
+        <field name="model">society.ticket</field>
+        <field name="arch" type="xml">
+            <search string="Search Tickets">
+                <field name="tenant_id" string="Scheduled Action"/>
+                <field name="status"/>
+                <separator/>
+                <filter string="Open Tickets" name="Status" domain="[('status','=','open')]"/>
+                <filter string="Pending Tickets" name="Status" domain="[('status','=','pending')]"/>
+                <separator/>
+                <group expand="0" string="Extended Filters">
+                    <filter string="Requested By" name="tenant_id" context="{'group_by':'tenant_id'}"/>
+                    <filter string="Status" name="status" context="{'group_by':'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
 
     <record id="action_society_ticket" model="ir.actions.act_window">
         <field name="name">Ticket</field>

@@ -15,8 +15,8 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="u_apart_num"/>
-                            <field name="u_bill_type"/>
+                            <field name="u_apart_id"/>
+                            <field name="u_bill_type_id"/>
                              <field name="u_bill_amt"/>
                             <field name="u_bill_date"/>
                         </group>
@@ -28,6 +28,7 @@
 
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -36,8 +37,8 @@
         <field name="model">society.utility</field>
         <field name="arch" type="xml">
             <list string="Utility Bills">
-                <field name="u_apart_num"/>
-                <field name="u_bill_type"/>
+                <field name="u_apart_id"/>
+                <field name="u_bill_type_id"/>
                 <field name="u_bill_date"/>
                 <field name="u_status" widget="badge"/>
                 <field name="u_bill_payment" optional="True"/>

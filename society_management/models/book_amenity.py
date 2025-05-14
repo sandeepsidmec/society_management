@@ -3,10 +3,12 @@ from odoo import models, fields,api
 class BookAmenities(models.Model):
     _name = 'society.book_amenities'
     _description = 'Society_Book_Amenities'
-    _rec_name = 'b_amenity_name'
+    _rec_name = 'b_amenity_id'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
 
     # bid=fields.Char("")
-    b_amenity_name=fields.Many2one("society.amenities","Amenity Name")
+    b_amenity_id=fields.Many2one("society.amenities","Amenity Name",tracking=True)
     # booked_by=
     booking_date=fields.Date("Booking Date")
     # b_time

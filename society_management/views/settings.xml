@@ -8,11 +8,12 @@
                 <sheet>
                 <h3>App Settings</h3><br/>
                 <group>
-                <field name="country"/>
-<!--                <field name="timezone"/>-->
-                <field name="currency"/>
+                <field name="country_id"/>
+<!--                <field name="timezone_id"/>-->
+                <field name="currency_id"/>
                 </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -39,6 +40,7 @@
                 <field name="address"/>
                 </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>

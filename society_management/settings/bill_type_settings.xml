@@ -11,6 +11,7 @@
                 <field name="bill_type_category"/>
                 </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>

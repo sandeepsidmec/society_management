@@ -6,8 +6,10 @@ class Amenities(models.Model):
     _name = 'society.amenities'
     _description = 'Society_Amenities'
     _rec_name = 'amenity_name'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    amenity_name=fields.Char("Amenity Name")
+
+    amenity_name=fields.Char("Amenity Name", tracking=True)
     amenity_status=fields.Selection([('available','Available'),('not_available','Not Available')],default="not_available",string="Amenity Status")
     booking_req = fields.Boolean("Booking Required")
     l_booking_req=fields.Char("Booking Required",compute="booking")

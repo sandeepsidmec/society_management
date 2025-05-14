@@ -4,10 +4,12 @@ from odoo import models, fields,api
 class UtilityBills(models.Model):
     _name = 'society.utility'
     _description = 'Society_Utility'
-    _rec_name = 'u_bill_type'
+    _rec_name = 'u_bill_type_id'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    u_apart_num=fields.Many2one("society.apartment","Apartment Type")
-    u_bill_type=fields.Many2one("bill.type.settings","Bill Type",domain=[('bill_type_category', '=', 'utility')])
+
+    u_apart_id=fields.Many2one("society.apartment","Apartment Type")
+    u_bill_type_id=fields.Many2one("bill.type.settings","Bill Type",domain=[('bill_type_category', '=', 'utility')])
     u_bill_date = fields.Date("Bill Date")
     u_bill_amt = fields.Float("Bill Amount")
     u_due_date=fields.Date("Bill Due Date")
