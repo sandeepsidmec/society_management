@@ -5,8 +5,19 @@
         <field name="model">society.offline</field>
         <field name="arch" type="xml">
             <form string="offline">
+                <header>
+                    <button name="confirm_appointment" string="Confirm" type="object" class="oe_highlight"
+                            />
+                </header>
                 <sheet>
-
+                    <group>
+                        <field name="req_apart_num"/>
+                        <field name="r_tenant_name"/>
+                        <field name="tot_cost"/>
+                        <field name="r_month"/>
+                        <field name="r_year"/>
+                        <field name="status"/>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -17,9 +28,11 @@
         <field name="arch" type="xml">
             <list string="offline">
                 <field name="req_apart_num"/>
+                <field name="r_tenant_name"/>
                 <field name="tot_cost"/>
                 <field name="m_y"/>
-           </list>
+                <field name="status"/>
+            </list>
         </field>
     </record>
 

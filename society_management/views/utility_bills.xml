@@ -33,9 +33,8 @@
                 <field name="u_bill_type"/>
                 <field name="u_bill_date"/>
                 <field name="u_status"/>
-                <field name="u_bill_payment"/>
-
-
+                <field name="u_bill_payment" optional="True"/>
+                <field name="u_due_date" optional="True"/>
             </list>
         </field>
     </record>

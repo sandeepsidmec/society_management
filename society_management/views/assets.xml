@@ -10,13 +10,13 @@
                         <group>
                             <field name="asset_name"/>
                             <field name="category"/>
-                            <field name="condition" />
+                            <field name="condition"/>
                             <field name="tower"/>
                             <field name="floor"/>
                         </group>
                         <group>
-                            <field name="num" />
-                            <field name="loc" />
+                            <field name="num"/>
+                            <field name="loc"/>
                             <field name="date"/>
                             <field name="doc"/>
 

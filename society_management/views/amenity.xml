@@ -35,8 +35,7 @@
                 <field name="l_booking_req"/>
                 <field name="l_slot_time"/>
                 <field name="l_mul_booking"/>
-
-
+                <field name="no_of_per" optional="True"/>
             </list>
         </field>
     </record>

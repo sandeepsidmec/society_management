@@ -28,8 +28,9 @@ class Rent(models.Model):
         (str(y), str(y)) for y in range(2020, 2026)
     ], string='Rent For Year')
     rent_for = fields.Char(string="Rent For", compute="_compute_rent_for")
-    # rent_amt = fields.Float("Rent Amount")
+    rent_amt = fields.Float("Rent Amount")
     r_status = fields.Selection([('paid', 'Paid'), ('unpaid', 'Unpaid')], "Status",default="unpaid")
+    formatted_rent_amt = fields.Char(string="Rent Amount", compute="_compute_formatted_rent_amt", store=False)
     r_date = fields.Date("Payment Date")
 
     def _compute_rent_for(self):
@@ -46,3 +47,17 @@ class Rent(models.Model):
             i.r_tenant_name = i.r_tenant_name
             i.r_month=datetime.now().strftime('%B')
             i.r_year=str(datetime.now().year)
+
+
+    def _compute_formatted_rent_amt(self):
+        settings = self.env['currency.settings'].search([], limit=1)
+        for rec in self:
+            if not settings:
+                rec.formatted_rent_amt = str(rec.rent_amt)
+                continue
+            formatted = f"{rec.rent_amt:,.{settings.decimal_places}f}"
+            formatted = formatted.replace(",", "TMP").replace(".", settings.decimal_separator).replace("TMP", settings.thousand_separator)
+            if settings.symbol_position == 'left':
+                rec.formatted_rent_amt = f"{settings.currency_symbol}{formatted}"
+            else:
+                rec.formatted_rent_amt = f"{formatted}{settings.currency_symbol}"

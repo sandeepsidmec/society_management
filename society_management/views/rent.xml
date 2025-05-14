@@ -14,7 +14,7 @@
                         </group>
                         <group>
                             <field name="r_month" invisible="r_apart_num == False"/>
-                            <!--                <field name="rent_amt"/>-->
+                            <field name="rent_amt"/>
                             <field name="r_status"/>
                         </group>
                     </group>
@@ -30,7 +30,7 @@
                 <field name="r_apart_num"/>
                 <field name="r_tenant_name"/>
                 <field name="rent_for"/>
-                <!--                <field name="rent_amt"/>-->
+                <field name="formatted_rent_amt"/>
                 <field name="r_status"/>
                 <field name="r_date"/>
 
