@@ -25,3 +25,4 @@ class Apartment(models.Model):
             else:
                 i.l_apart_area = unit or ''
 
+ 
