@@ -6,9 +6,11 @@ class Amenities(models.Model):
     _name = 'society.amenities'
     _description = 'Society_Amenities'
     _rec_name = 'amenity_name'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    amenity_name=fields.Char("Amenity Name")
-    amenity_status=fields.Selection([('available','Available'),('not available','Not Available')],default="not available",string="Amenity Status")
+
+    amenity_name=fields.Char("Amenity Name", tracking=True)
+    amenity_status=fields.Selection([('available','Available'),('not_available','Not Available')],default="not_available",string="Amenity Status")
     booking_req = fields.Boolean("Booking Required")
     l_booking_req=fields.Char("Booking Required",compute="booking")
     start_time=fields.Datetime("Start Time")# only time field ???
@@ -26,6 +28,7 @@ class Amenities(models.Model):
                 i.l_slot_time=f"Start time:{i.start_time}\n End time:{i.end_time}\n Slot time:{i.slot_time}"
             else:
                 i.l_booking_req = f"No"
+                i.l_slot_time = ""
 
     def mul_bookings(self):
         for i in self:
@@ -34,6 +37,13 @@ class Amenities(models.Model):
             else:
                 i.l_mul_booking = f"No"
 
+    def action_available(self):
+        for record in self:
+            record.amenity_status = 'available'
+
+    def action_not_available(self):
+        for record in self:
+            record.amenity_status = 'not_available'
 
 
 

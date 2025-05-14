@@ -7,10 +7,11 @@
             <form string="Book Amenities">
                 <sheet>
                     <group>
-                        <field name="b_amenity_name"/>
+                        <field name="b_amenity_id"/>
                         <field name="booking_date"/>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -19,7 +20,7 @@
         <field name="model">society.book_amenities</field>
         <field name="arch" type="xml">
             <list string="Book Amenities">
-                <field name="b_amenity_name"/>
+                <field name="b_amenity_id"/>
                 <field name="booking_date" optional="True"/>
             </list>
         </field>

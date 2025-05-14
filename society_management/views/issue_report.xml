@@ -5,12 +5,21 @@
         <field name="model">society.issue_report</field>
         <field name="arch" type="xml">
             <form string="issue_report">
+                 <header>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,process,resolved"/>
+                    <button name="action_pending" type="object" string="Pending"
+                            class="btn-primary" invisible="state != 'resolved'"/>
+                    <button name="action_process" type="object" string="process"
+                             class="btn-primary" invisible="state != 'pending'"/>
+                    <button name="action_resolved" type="object" string="Resolved"
+                            class="btn-primary" invisible="state == 'resolved'"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
-                            <field name="asset"/>
+                            <field name="asset_id"/>
                             <field name="issue_title"/>
-                            <field name="state"/>
+                            <field name="state" />
                         </group>
                         <group>
 
@@ -21,6 +30,7 @@
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -30,8 +40,8 @@
         <field name="arch" type="xml">
             <list string="issue_report">
                 <field name="issue_title"/>
-                <field name="asset"/>
-                <field name="state"/>
+                <field name="asset_id"/>
+                <field name="state" widget="badge"/>
                 <field name="priority"/>
 
             </list>

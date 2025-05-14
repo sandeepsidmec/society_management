@@ -5,6 +5,15 @@
         <field name="model">society.apartment</field>
         <field name="arch" type="xml">
             <form string="Apartment">
+                <header>
+                    <field name="apart_status" widget="statusbar" statusbar_visible="unsold,occupied,availabe_for_rent"/>
+                    <button name="action_unsold" type="object" string="Unsold"
+                            class="btn-primary" invisible="apart_status != 'availabe_for_rent'"/>
+                    <button name="action_occupied" type="object" string="Occupied"
+                             class="btn-primary" invisible="apart_status == 'occupied'"/>
+                    <button name="action_availabe_for_rent" type="object" string="Availabe_for_rent"
+                            class="btn-primary" invisible="apart_status != 'unsold'"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -16,13 +25,13 @@
                         </group>
                         <group>
                             <field name="apart_area"/>
-                            <field name="apart_type"/>
-                            <field name="apart_status"/>
+                            <field name="apart_type_id"/>
                             <field name="owner_id"/>
 
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -33,13 +42,34 @@
             <list string="Apartment">
                 <field name="apart_num"/>
                 <field name="l_apart_area"/>
-                <field name="apart_status"/>
-                <field name="apart_type"/>
+                <field name="apart_status" widget="badge"/>
+                <field name="apart_type_id"/>
                 <field name="tower_id"/>
                 <field name="floor_id"/>
 
 
             </list>
+        </field>
+    </record>
+
+    <record id="view_society_apartment_search" model="ir.ui.view">
+        <field name="name">society.apartment.search</field>
+        <field name="model">society.apartment</field>
+        <field name="arch" type="xml">
+            <search string="Search apartment">
+                <field name="apart_num"/>
+                <field name="apart_status"/>
+                <separator/>
+                <filter string="Unsold" name="apart_status" domain="[('apart_status','=','unsold')]"/>
+                <filter string="Occupied" name="apart_status" domain="[('apart_status','=','occupied')]"/>
+                <filter string="Available for Rent" name="apart_status" domain="[('apart_status','=','availabe_for_rent')]"/>
+                <separator/>
+                <group expand="0" string="Extended Filters">
+                    <filter string="Apartments" name="apart_num" context="{'group_by':'apart_num'}"/>
+                    <filter string="Status" name="apart_status" context="{'group_by':'apart_status'}"/>
+                    <filter string="Tower" name="tower_id" context="{'group_by':'tower_id'}"/>
+                </group>
+            </search>
         </field>
     </record>
 

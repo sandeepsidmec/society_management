@@ -22,6 +22,8 @@ access_society_assets,access_society_assets,model_society_assets,,1,1,1,1
 access_society_m_schedule,access_society_m_schedule,model_society_m_schedule,,1,1,1,1
 access_society_issue_report,access_society_issue_report,model_society_issue_report,,1,1,1,1
 
+access_society_ticket,access_society_ticket,model_society_ticket,,1,1,1,1
+
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
 access_society_society_settings,access_society_society_settings,model_society_society_settings,,1,1,1,1
 access_apartment_type_settings,access_apartment_type_settings,model_apartment_type_settings,,1,1,1,1
@@ -30,5 +32,6 @@ access_bill_type_settings,access_bill_type_settings,model_bill_type_settings,,1,
 access_ticket_type_settings,access_ticket_type_settings,model_ticket_type_settings,,1,1,1,1
 access_currency_settings,access_currency_settings,model_currency_settings,,1,1,1,1
 access_maintenance_settings,access_maintenance_settings,model_maintenance_settings,,1,1,1,1
+access_maintenance_settings_lines,access_maintenance_settings_lines,model_maintenance_settings_lines,,1,1,1,1
 access_visitor_type_settings,access_visitor_type_settings,model_visitor_type_settings,,1,1,1,1
 

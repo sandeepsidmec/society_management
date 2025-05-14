@@ -30,6 +30,8 @@
     <menuitem id="schedule" name="Maintenance Schedule" parent="menu_assets" action="action_society_m_schedule"/>
     <menuitem id="issue" name="Issue Report" parent="menu_assets" action="action_society_issue_report"/>
 
+    <menuitem id="tickets" name="Tickets" parent="society_management" action="action_society_ticket"/>
+
     <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100"/>
     <menuitem id="society_management_app_settings" name="App Settings" action="action_society_settings"
               parent="society_management_settings"/>

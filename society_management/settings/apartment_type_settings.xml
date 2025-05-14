@@ -10,6 +10,7 @@
                 <field name="apartment_type"/>
                 </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>

@@ -4,6 +4,8 @@ class Owner(models.Model):
     _name = 'society.owner'
     _description = 'Society_Owner'
     _rec_name = "o_name"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
 
 
     o_name= fields.Char(string=" Full Name", required=True)
@@ -12,5 +14,5 @@ class Owner(models.Model):
     o_status= fields.Selection([('active', 'Active'), ('inactive', 'Inactive')],string="Status")
     o_tower_id=fields.Many2one("society.tower","Select_Tower")
     o_floor_id=fields.Many2one("society.floor","Select_Floor")
-    Owner_apart=fields.Many2many("society.apartment",string="Apartment Number")
+    owner_apart_ids=fields.Many2many("society.apartment",string="Apartment Number")
     o_photo=fields.Binary("photo_upload")

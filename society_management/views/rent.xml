@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="view_rent_form" model="ir.ui.view">
-        <field name="name">rent</field>
+        <field name="name">Rent</field>
         <field name="model">society.rent</field>
         <field name="arch" type="xml">
             <form string="Rent">
+                <header>
+                    <field name="r_status" widget="statusbar" statusbar_visible="paid,unpaid"/>
+                    <button name="action_paid" type="object" string="Paid"
+                            class="btn-primary" invisible="r_status == 'paid'"/>
+                    <button name="action_unpaid" type="object" string="Unpaid"
+                            class="btn-secondary" invisible="r_status != 'paid'"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
-                            <field name="r_apart_num"/>
-                            <field name="r_tenant_name"/>
-                            <field name="r_year" invisible="r_apart_num == False"/>
+                            <field name="r_apart_id"/>
+                            <field name="r_tenant_id"/>
+                            <field name="r_year" invisible="r_apart_id == False"/>
                         </group>
                         <group>
-                            <field name="r_month" invisible="r_apart_num == False"/>
+                            <field name="r_month" invisible="r_apart_id == False"/>
                             <field name="rent_amt"/>
-                            <field name="r_status"/>
+<!--                            <field name="r_status"/>-->
+                            <field name="r_date" invisible="r_status != 'paid'"/>
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -27,11 +36,11 @@
         <field name="model">society.rent</field>
         <field name="arch" type="xml">
             <list string="Rent">
-                <field name="r_apart_num"/>
-                <field name="r_tenant_name"/>
+                <field name="r_apart_id"/>
+                <field name="r_tenant_id"/>
                 <field name="rent_for"/>
                 <field name="formatted_rent_amt"/>
-                <field name="r_status"/>
+                <field name="r_status" widget="badge"/>
                 <field name="r_date"/>
 
 

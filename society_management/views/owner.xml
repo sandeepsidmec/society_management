@@ -16,11 +16,12 @@
                         <group>
                             <field name="o_tower_id"/>
                             <field name="o_floor_id"/>
-                            <field name="Owner_apart" widget="many2many_tags"/>
+                            <field name="owner_apart_ids" widget="many2many_tags"/>
                             <field name="o_photo"/>
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -32,8 +33,8 @@
                 <field name="o_name"/>
                 <field name="o_email"/>
                 <field name="o_phone"/>
-                <field name="o_status"/>
-                <field name="Owner_apart"/>
+                <field name="o_status" widget="badge"/>
+                <field name="owner_apart_ids"/>
 
             </list>
         </field>

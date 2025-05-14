@@ -5,13 +5,15 @@ class Apartment(models.Model):
     _name = 'society.apartment'
     _description = 'Society_Apartment'
     _rec_name = 'apart_num'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    apart_num=fields.Char("Apartment Number")
+
+    apart_num=fields.Char("Apartment Number",tracking=True)
     apart_area = fields.Integer("Apartment area(sqft)")
     l_apart_area = fields.Char("Apartment area(sqft)",compute="area")
-    apart_status = fields.Selection([('unsold','Unsold'),('occupied','Occupied'),('available for rent','Available For Rent'),('rented','Rented')],"Apartment status")
-    apart_type = fields.Many2one("apartment.type.settings","Apartment type")
-    tower_id=fields.Many2one("society.tower","Tower_Name")
+    apart_status = fields.Selection([('unsold','Unsold'),('availabe_for_rent','Available For Rent'),('occupied','Occupied')],"Apartment status",default='unsold')
+    apart_type_id = fields.Many2one("apartment.type.settings","Apartment type")
+    tower_id =fields.Many2one("society.tower","Tower_Name")
     parking_id=fields.Many2one("society.parking","Parking_code")
     floor_id=fields.Many2one("society.floor","Floors")
     owner_id=fields.Many2one("society.owner","Select Owner")
@@ -25,4 +27,15 @@ class Apartment(models.Model):
             else:
                 i.l_apart_area = unit or ''
 
- 
+    def action_unsold(self):
+        for record in self:
+            record.apart_status = 'unsold'
+
+    def action_occupied(self):
+        for record in self:
+            record.apart_status = 'occupied'
+
+    def action_availabe_for_rent(self):
+        for record in self:
+            record.apart_status = 'availabe_for_rent'
+

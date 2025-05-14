@@ -8,17 +8,23 @@
                 <header>
                     <button name="confirm_appointment" string="Confirm" type="object" class="oe_highlight"
                             />
+                    <field name="status" widget="statusbar" statusbar_visible="paid,unpaid"/>
+                    <button name="action_paid" type="object" string="Paid"
+                            class="btn-secondary" invisible="status != 'unpaid'"/>
+                    <button name="action_unpaid" type="object" string="Unpaid"
+                             class="btn-secondary" invisible="status != True"/>
                 </header>
                 <sheet>
                     <group>
-                        <field name="req_apart_num"/>
-                        <field name="r_tenant_name"/>
+                        <field name="req_apart_id"/>
+                        <field name="r_tenant_id"/>
                         <field name="tot_cost"/>
                         <field name="r_month"/>
                         <field name="r_year"/>
                         <field name="status"/>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -27,11 +33,11 @@
         <field name="model">society.offline</field>
         <field name="arch" type="xml">
             <list string="offline">
-                <field name="req_apart_num"/>
-                <field name="r_tenant_name"/>
+                <field name="req_apart_id"/>
+                <field name="r_tenant_id"/>
                 <field name="tot_cost"/>
                 <field name="m_y"/>
-                <field name="status"/>
+                <field name="status" widget="badge"/>
             </list>
         </field>
     </record>

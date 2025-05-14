@@ -5,10 +5,18 @@
         <field name="model">society.common_area</field>
         <field name="arch" type="xml">
             <form string="Common Area Bills">
+                <header>
+                    <field name="c_status" widget="statusbar" statusbar_visible="paid,unpaid"/>
+                    <button name="action_paid" type="object" string="Paid"
+                            class="btn-primary" invisible="c_status != 'unpaid'"/>
+                    <button name="action_unpaid" type="object" string="Unpaid"
+                             class="btn-secondary" invisible="c_status != 'paid'"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
-                            <field name="c_bill_type"/>
+                            <field name="c_apart_id"/>
+                            <field name="c_bill_type_id"/>
                             <field name="c_bill_date"/>
                               <field name="c_bill_amt"/>
                         </group>
@@ -22,6 +30,7 @@
 
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -30,9 +39,10 @@
         <field name="model">society.common_area</field>
         <field name="arch" type="xml">
             <list string="Common Area Bills">
-                <field name="c_bill_type"/>
+                <field name="c_apart_id"/>
+                <field name="c_bill_type_id"/>
                 <field name="c_bill_date"/>
-                <field name="c_status"/>
+                <field name="c_status" widget="badge"/>
                 <field name="c_bill_payment" optional="True"/>
 
 
