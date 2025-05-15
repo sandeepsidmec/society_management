@@ -24,3 +24,5 @@ from . import maintenance_schedule
 from . import issue_report
 
 from . import tickets
+from . import notice_board
+from . import visitors

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_notice_board_form" model="ir.ui.view">
+        <field name="name">Notice Board</field>
+        <field name="model">society.notice_board</field>
+        <field name="arch" type="xml">
+            <form string="Notice Board">
+                <sheet>
+                    <group>
+                        <field name="title"/>
+                        <field name="desc"/>
+<!--                        <field name=""/>-->
+
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_notice_board_list" model="ir.ui.view">
+        <field name="name">Notice Board</field>
+        <field name="model">society.notice_board</field>
+        <field name="arch" type="xml">
+            <list string="Notice Board">
+                <field name="title"/>
+                <field name="date"/>
+
+            </list>
+        </field>
+    </record>
+
+    <record id="action_society_notice_board" model="ir.actions.act_window">
+        <field name="name">Notice Board</field>
+        <field name="res_model">society.notice_board</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_notice_board_list"/>
+    </record>
+
+</odoo>

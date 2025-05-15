@@ -23,6 +23,8 @@ access_society_m_schedule,access_society_m_schedule,model_society_m_schedule,,1,
 access_society_issue_report,access_society_issue_report,model_society_issue_report,,1,1,1,1
 
 access_society_ticket,access_society_ticket,model_society_ticket,,1,1,1,1
+access_society_notice_board,access_society_notice_board,model_society_notice_board,,1,1,1,1
+access_society_visitors,access_society_visitors,model_society_visitors,,1,1,1,1
 
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
 access_society_society_settings,access_society_society_settings,model_society_society_settings,,1,1,1,1

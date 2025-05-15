@@ -1,5 +1,6 @@
 
 from odoo import models, fields,api
+from datetime import datetime
 
 
 class Amenities(models.Model):
@@ -20,6 +21,7 @@ class Amenities(models.Model):
     mul_booking=fields.Boolean("Multiple Bookings Allowed")
     l_mul_booking = fields.Text("Multiple Bookings Allowed",compute="mul_bookings")
     no_of_per=fields.Integer("Number of Persons allowed per Booking")
+
 
     def booking(self):
         for i in self:

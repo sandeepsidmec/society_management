@@ -34,6 +34,13 @@ class Rent(models.Model):
     formatted_rent_amt = fields.Char(string="Rent Amount", compute="_compute_formatted_rent_amt", store=False)
     r_date = fields.Date("Payment Date",default=fields.Date.context_today)
 
+    # @api.onchange('r_apart_id')
+    # def rent_apart(self):
+    #    for i in self:
+    #        if i.r_apart_id:
+    #             i.r_apart_id.apart_status = "occupied"
+
+
 
     def _compute_rent_for(self):
         for i in self:
@@ -110,6 +117,7 @@ class Rent(models.Model):
     def action_paid(self):
         for record in self:
             record.r_status = 'paid'
+            # record.r_apart_id.apart_status = "occupied"
 
             # Parse month and year from rent
             try:

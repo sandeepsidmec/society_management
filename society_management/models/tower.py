@@ -8,7 +8,7 @@ class Tower(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
 
-    tower_name=fields.Char("Tower_name")
+    tower_name=fields.Char("Tower Name")
     no_of_apart=fields.Integer("No of Apartment", compute='_compute_apartment_count')
 
     @api.depends('tower_name')

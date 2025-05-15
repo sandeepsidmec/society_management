@@ -24,13 +24,16 @@
     <menuitem id="common" name="Common Area Bills" parent="bills" action="action_society_common"/>
     <menuitem id="maintenance" name="Maintenance" parent="bills" action="action_society_maintenance"/>
 
-    <menuitem id="offline" name="Offline Request" parent="society_management" action="action_society_offline" sequence="7"/>
+    <menuitem id="offline" name="Offline Request" parent="society_management" action="action_society_offline"
+              sequence="7"/>
     <menuitem id="menu_assets" name="Assets" parent="society_management" sequence="7"/>
     <menuitem id="assets" name="Assets" parent="menu_assets" action="action_society_assets"/>
     <menuitem id="schedule" name="Maintenance Schedule" parent="menu_assets" action="action_society_m_schedule"/>
     <menuitem id="issue" name="Issue Report" parent="menu_assets" action="action_society_issue_report"/>
 
     <menuitem id="tickets" name="Tickets" parent="society_management" action="action_society_ticket"/>
+    <menuitem id="menu_notice" name="Notice Board" parent="society_management" action="action_society_notice_board"/>
+    <menuitem id="menu_visitors" name="Visitors" parent="society_management" action="action_society_visitors"/>
 
     <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100" groups="society_management.group_society_admin"/>/>
     <menuitem id="society_management_app_settings" name="App Settings" action="action_society_settings"
