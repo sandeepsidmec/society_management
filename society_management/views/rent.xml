@@ -40,7 +40,7 @@
                 <field name="r_tenant_id"/>
                 <field name="rent_for"/>
                 <field name="formatted_rent_amt"/>
-                <field name="r_status" widget="badge"/>
+                <field name="r_status" widget="badge" decoration-danger="r_status == 'unpaid'" decoration-success="r_status == 'paid'"/>
                 <field name="r_date"/>
 
 

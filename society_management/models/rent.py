@@ -136,10 +136,38 @@ class Rent(models.Model):
                 if cb.c_bill_date.month == month_num and cb.c_bill_date.year == year_num:
                     cb.c_status = 'paid'
 
+            record.r_apart_id.apart_status = 'occupied'
+
 
     def action_unpaid(self):
         for record in self:
             record.r_status = 'unpaid'
+
+            try:
+                month_num = datetime.strptime(record.r_month, "%B").month
+                year_num = int(record.r_year)
+            except Exception:
+                continue  # Skip if invalid month/year
+
+            # Mark utility bills as paid for the apartment in the same month/year
+            utility_bills = self.env['society.utility'].search([
+                ('u_apart_id', '=', record.r_apart_id.id),
+                ('u_bill_date', '!=', False)
+            ])
+            for ub in utility_bills:
+                if ub.u_bill_date.month == month_num and ub.u_bill_date.year == year_num:
+                    ub.u_status = 'unpaid'
+
+            # Mark common area bills as paid for the same month/year (applies to all apartments)
+            common_bills = self.env['society.common_area'].search([
+                ('c_apart_id', '=', record.r_apart_id.id),
+                ('c_bill_date', '!=', False)
+            ])
+            for cb in common_bills:
+                if cb.c_bill_date.month == month_num and cb.c_bill_date.year == year_num:
+                    cb.c_status = 'unpaid'
+
+            record.r_apart_id.apart_status = 'occupied'
 
 
 

@@ -3,6 +3,7 @@
     "depends": ["mail", ],
     "data": [
         "security/ir.model.access.csv",
+        "security/security.xml",
         "views/settings.xml",
         "views/user.xml",
         "views/tenant.xml",

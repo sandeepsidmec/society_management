@@ -1,6 +1,6 @@
 from email.policy import default
 
-from odoo import models, fields
+from odoo import models, fields,api
 
 class Apartment(models.Model):
     _name = 'society.apartment'
@@ -19,6 +19,16 @@ class Apartment(models.Model):
     floor_id=fields.Many2one("society.floor","Floors")
     owner_id=fields.Many2one("society.owner","Select Owner")
 
+    tenant_id = fields.Many2one("society.tenant", string="Current Tenant", compute="_compute_tenant", store=True)
+
+    def _compute_tenant(self):
+        for rec in self:
+            rent = self.env['society.rent'].search(
+                [('r_apart_id', '=', rec.id), ('r_tenant_id', '!=', False)],
+                order='id desc', limit=1
+            )
+            rec.tenant_id = rent.r_tenant_id if rent else False
+
     def area(self):
         settings = self.env['maintenance.settings'].search([], limit=1)
         unit = settings.unit_name or '' # if we dont use --(or '') then if unit name not given it returns false
@@ -35,6 +45,8 @@ class Apartment(models.Model):
     def action_occupied(self):
         for record in self:
             record.apart_status = 'occupied'
+            if record.parking_id:
+                record.parking_id.parking_status = 'allocated'
 
     def action_availabe_for_rent(self):
         for record in self:

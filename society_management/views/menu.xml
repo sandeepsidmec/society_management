@@ -2,7 +2,7 @@
 <odoo>
     <menuitem id="society_management" name="Society"/>
     <menuitem id="society_management_user" name="User" action="action_society_user" parent="society_management"
-              sequence="1"/>
+              sequence="1" groups="society_management.group_society_admin"/>/>
     <menuitem id="owner" name="Owner" action="action_society_owner" parent="society_management" sequence="2"/>
 
     <menuitem id="tenant" name="Tenant" parent="society_management" sequence="3"/>
@@ -10,8 +10,8 @@
     <menuitem id="rent" name="Rent" parent="tenant" action="action_society_rent"/>
 
     <menuitem id="apart" name="Apartment" parent="society_management" sequence="4"/>
-    <menuitem id="tower" name="Tower" parent="apart" action="action_society_tower"/>
-    <menuitem id="floor" name="Floor" parent="apart" action="action_society_floor"/>
+    <menuitem id="tower" name="Tower" parent="apart" action="action_society_tower" groups="society_management.group_society_admin"/>/>
+    <menuitem id="floor" name="Floor" parent="apart" action="action_society_floor" groups="society_management.group_society_admin"/>/>
     <menuitem id="apartment" name="Apartment" parent="apart" action="action_society_apartment"/>
     <menuitem id="parking" name="Parking" parent="apart" action="action_society_parking"/>
 
@@ -32,7 +32,7 @@
 
     <menuitem id="tickets" name="Tickets" parent="society_management" action="action_society_ticket"/>
 
-    <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100"/>
+    <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100" groups="society_management.group_society_admin"/>/>
     <menuitem id="society_management_app_settings" name="App Settings" action="action_society_settings"
               parent="society_management_settings"/>
     <menuitem id="society_management_society_settings" name="Society Settings" action="action_society_society_settings"
