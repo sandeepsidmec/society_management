@@ -1,5 +1,6 @@
-from odoo import models, fields,api
+from odoo import models, fields, api
 from datetime import datetime
+
 
 class Rent(models.Model):
     _name = 'society.rent'
@@ -7,10 +8,8 @@ class Rent(models.Model):
     _rec_name = "r_apart_id"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-
-
-    r_apart_id=fields.Many2one("society.apartment","Apartment Number")
-    r_tenant_id=fields.Many2one("society.tenant","Tenant Name")
+    r_apart_id = fields.Many2one("society.apartment", "Apartment Number")
+    r_tenant_id = fields.Many2one("society.tenant", "Tenant Name")
     r_month = fields.Selection([
         ('January', 'January'),
         ('February', 'February'),
@@ -30,9 +29,16 @@ class Rent(models.Model):
     ], string='Rent For Year')
     rent_for = fields.Char(string="Rent For", compute="_compute_rent_for")
     rent_amt = fields.Float("Rent Amount")
-    r_status = fields.Selection([('paid', 'Paid'), ('unpaid', 'Unpaid')], "Status",default="unpaid")
+    r_status = fields.Selection([('paid', 'Paid'), ('unpaid', 'Unpaid')], "Status", default="unpaid")
     formatted_rent_amt = fields.Char(string="Rent Amount", compute="_compute_formatted_rent_amt", store=False)
-    r_date = fields.Date("Payment Date",default=fields.Date.context_today)
+    r_date = fields.Date("Payment Date", default=fields.Date.context_today)
+
+    # @api.onchange('r_apart_id')
+    # def rent_apart(self):
+    #    for i in self:
+    #        if i.r_apart_id:
+    #             i.r_apart_id.apart_status = "occupied"
+
 
 
     def _compute_rent_for(self):
@@ -40,15 +46,14 @@ class Rent(models.Model):
             if i.r_month and i.r_year:
                 i.rent_for = f"{i.r_month} {i.r_year}"
             else:
-                i.rent_for =f"invalid"
-
+                i.rent_for = f"invalid"
 
     @api.onchange("r_apart_id")
     def onchange_r_apart_id(self):
         for i in self:
             i.r_tenant_id = i.r_tenant_id
-            i.r_month=datetime.now().strftime('%B')
-            i.r_year=str(datetime.now().year)
+            i.r_month = datetime.now().strftime('%B')
+            i.r_year = str(datetime.now().year)
 
     @api.depends('rent_amt', 'r_apart_id', 'r_month', 'r_year')
     def _compute_formatted_rent_amt(self):
@@ -105,11 +110,10 @@ class Rent(models.Model):
             else:
                 rec.formatted_rent_amt = f"{formatted}{settings.currency_symbol}"
 
-
-
     def action_paid(self):
         for record in self:
             record.r_status = 'paid'
+            # record.r_apart_id.apart_status = "occupied"
 
             # Parse month and year from rent
             try:
@@ -137,10 +141,7 @@ class Rent(models.Model):
                     cb.c_status = 'paid'
 
 
+
     def action_unpaid(self):
         for record in self:
             record.r_status = 'unpaid'
-
-
-
-

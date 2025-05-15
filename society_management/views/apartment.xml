@@ -8,7 +8,7 @@
                 <header>
                     <field name="apart_status" widget="statusbar" statusbar_visible="unsold,occupied,availabe_for_rent"/>
                     <button name="action_unsold" type="object" string="Unsold"
-                            class="btn-primary" invisible="apart_status != 'availabe_for_rent'"/>
+                            class="btn-primary" invisible="apart_status == 'unsold'"/>
                     <button name="action_occupied" type="object" string="Occupied"
                              class="btn-primary" invisible="apart_status == 'occupied'"/>
                     <button name="action_availabe_for_rent" type="object" string="Availabe_for_rent"

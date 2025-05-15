@@ -1,5 +1,5 @@
 
-from odoo import models, fields
+from odoo import models, fields,api
 
 class Apartment(models.Model):
     _name = 'society.apartment'
@@ -11,12 +11,14 @@ class Apartment(models.Model):
     apart_num=fields.Char("Apartment Number",tracking=True)
     apart_area = fields.Integer("Apartment area(sqft)")
     l_apart_area = fields.Char("Apartment area(sqft)",compute="area")
-    apart_status = fields.Selection([('unsold','Unsold'),('availabe_for_rent','Available For Rent'),('occupied','Occupied')],"Apartment status",default='unsold')
+    apart_status = fields.Selection([('unsold','Unsold'),('availabe_for_rent','Available For Rent'),('occupied','Occupied')],"Apartment status",default='unsold',store=True)
     apart_type_id = fields.Many2one("apartment.type.settings","Apartment type")
     tower_id =fields.Many2one("society.tower","Tower_Name")
     parking_id=fields.Many2one("society.parking","Parking_code")
     floor_id=fields.Many2one("society.floor","Floors")
     owner_id=fields.Many2one("society.owner","Select Owner")
+
+
 
     def area(self):
         settings = self.env['maintenance.settings'].search([], limit=1)

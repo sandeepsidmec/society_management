@@ -9,4 +9,4 @@ class Floor(models.Model):
 
 
     floor=fields.Char("Floors")
-    tower_id=fields.Many2one("society.tower","Tower_name",tracking=True)
+    tower_id=fields.Many2one("society.tower","Tower Name",tracking=True)

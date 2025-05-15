@@ -9,6 +9,9 @@
                     <group>
                         <field name="b_amenity_id"/>
                         <field name="booking_date"/>
+<!--                        <field name="booking_time" widget="radio"/>-->
+                        <field name="b_no_of_per"/>
+
                     </group>
                 </sheet>
                 <chatter/>
@@ -21,7 +24,10 @@
         <field name="arch" type="xml">
             <list string="Book Amenities">
                 <field name="b_amenity_id"/>
+<!--                 <field name="booking_time"/>-->
+                 <field name="b_no_of_per"/>
                 <field name="booking_date" optional="True"/>
+
             </list>
         </field>
     </record>

@@ -32,11 +32,11 @@
         <field name="arch" type="xml">
             <list string="Assets">
                 <field name="asset_name"/>
-                <field name="tower"/>
-                <field name="floor"/>
-                <field name="num"/>
+                <field name="tower_id"/>
+                <field name="floor_id"/>
+                <field name="aprt_num_id"/>
                 <field name="condition"/>
-                <field name="category" optional="True"/>
+                <field name="category_id" optional="True"/>
 
             </list>
         </field>
