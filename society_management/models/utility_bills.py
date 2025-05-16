@@ -8,7 +8,7 @@ class UtilityBills(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
 
-    u_apart_id=fields.Many2one("society.apartment","Apartment Type")
+    u_apart_id=fields.Many2one("society.apartment","Apartment Number")
     u_bill_type_id=fields.Many2one("bill.type.settings","Bill Type",domain=[('bill_type_category', '=', 'utility')])
     u_bill_date = fields.Date("Bill Date")
     u_bill_amt = fields.Float("Bill Amount")

@@ -5,6 +5,14 @@
         <field name="model">society.visitors</field>
         <field name="arch" type="xml">
             <form string="visitor">
+                  <header>
+                    <field name="v_status" widget="statusbar" statusbar_visible="allow,deny"/>
+                    <button name="action_allow" type="object" string="Allow"
+                            class="btn-info" invisible="v_status == 'allow'"/>
+                    <button name="action_deny" type="object" string="Deny"
+                            class="btn-primary" invisible="v_status == 'deny'"/>
+
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -13,7 +21,7 @@
                             <field name="v_apart_id"/>
                             <field name="visitor_name"/>
                             <field name="mobile"/>
-                              <field name="v_status"/>
+
                         </group>
                         <group>
                             <field name="v_type"/>

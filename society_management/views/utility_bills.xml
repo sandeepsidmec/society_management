@@ -40,7 +40,7 @@
                 <field name="u_apart_id"/>
                 <field name="u_bill_type_id"/>
                 <field name="u_bill_date"/>
-                <field name="u_status" widget="badge"/>
+                <field name="u_status" widget="badge"  decoration-info="u_status == 'unpaid'" decoration-success="u_status == 'paid'"/>
                 <field name="u_bill_payment" optional="True"/>
                 <field name="u_due_date" optional="True"/>
             </list>

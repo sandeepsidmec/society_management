@@ -32,7 +32,7 @@
                 <field name="email"/>
                 <field name="phone"/>
                 <field name="role"/>
-                <field name="status" widget="badge"/>
+                <field name="status" widget="badge" decoration-warning="status == 'inactive'" decoration-success="status == 'active'"/>
             </list>
         </field>
     </record>

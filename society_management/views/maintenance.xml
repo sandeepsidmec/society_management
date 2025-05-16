@@ -44,7 +44,7 @@
                 <field name="cost_amount"/>
                 <field name="add_cost"/>
                 <field name="payment_due" optional="Hide"/>
-                <field name="state" widget="badge"/>
+                <field name="state" widget="badge" decoration-warning="state == 'draft'" decoration-info="state == 'publish'"/>
             </list>
         </field>
     </record>

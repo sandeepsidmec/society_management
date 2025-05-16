@@ -37,7 +37,7 @@
                 <field name="tenant_id"/>
                 <field name="t_email"/>
                 <field name="t_phone"/>
-                <field name="t_status" widget="badge"/>
+                <field name="t_status" widget="badge" decoration-warning="t_status == 'inactive'" decoration-success="t_status == 'active'"/>
             </list>
         </field>
     </record>

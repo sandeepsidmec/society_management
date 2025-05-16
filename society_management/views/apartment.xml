@@ -42,7 +42,7 @@
             <list string="Apartment">
                 <field name="apart_num"/>
                 <field name="l_apart_area"/>
-                <field name="apart_status" widget="badge"/>
+                <field name="apart_status" widget="badge" decoration-danger="apart_status == 'unsold'" decoration-warning="apart_status == 'availabe_for_rent'" decoration-success="apart_status == 'occupied'"/>
                 <field name="apart_type_id"/>
                 <field name="tower_id"/>
                 <field name="floor_id"/>

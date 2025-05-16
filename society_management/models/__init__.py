@@ -26,3 +26,5 @@ from . import issue_report
 from . import tickets
 from . import notice_board
 from . import visitors
+from . import events
+from . import report

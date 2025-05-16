@@ -40,7 +40,7 @@
         <field name="arch" type="xml">
             <list string="m_schedule">
                 <field name="m_asset_id"/>
-                <field name="m_status" widget="badge"/>
+                <field name="m_status" widget="badge" decoration-danger="m_status == 'overdue'" decoration-warning="m_status == 'pending'" decoration-success="m_status == 'completed'"/>
                 <field name="m_amt"/>
 
 

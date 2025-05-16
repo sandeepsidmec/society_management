@@ -49,7 +49,7 @@
                 <field name="tenant_id" string="Requester Name"/>
                 <field name="owner_id"/>
                 <field name="ticket_type_id" string="Ticket Type"/>
-                <field name="status" widget="badge"/>
+                <field name="status" widget="badge" decoration-danger="status == 'closed'"  decoration-warning="status == 'pending'" decoration-info="status == 'open'" decoration-success="status == 'resolved'"/>
             </list>
         </field>
     </record>
