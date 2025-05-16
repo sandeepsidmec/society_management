@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <form string="Rent">
                 <header>
+                    <button name="send_email" string="Send Mail" type="object" class="btn-primary"/>
                     <field name="r_status" widget="statusbar" statusbar_visible="paid,unpaid"/>
                     <button name="action_paid" type="object" string="Paid"
                             class="btn-primary" invisible="r_status == 'paid'"/>
@@ -22,7 +23,7 @@
                         <group>
                             <field name="r_month" invisible="r_apart_id == False"/>
                             <field name="rent_amt"/>
-<!--                            <field name="r_status"/>-->
+                            <!--                            <field name="r_status"/>-->
                             <field name="r_date" invisible="r_status != 'paid'"/>
                         </group>
                     </group>
@@ -40,7 +41,8 @@
                 <field name="r_tenant_id"/>
                 <field name="rent_for"/>
                 <field name="formatted_rent_amt"/>
-                <field name="r_status" widget="badge" decoration-danger="r_status == 'unpaid'" decoration-success="r_status == 'paid'"/>
+                <field name="r_status" widget="badge" decoration-danger="r_status == 'unpaid'"
+                       decoration-success="r_status == 'paid'"/>
                 <field name="r_date"/>
 
 

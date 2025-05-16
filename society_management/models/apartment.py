@@ -31,6 +31,8 @@ class Apartment(models.Model):
             )
             rec.tenant_id = rent.r_tenant_id if rent else False
 
+
+
     def area(self):
         settings = self.env['maintenance.settings'].search([], limit=1)
         unit = settings.unit_name or '' # if we dont use --(or '') then if unit name not given it returns false
@@ -47,8 +49,6 @@ class Apartment(models.Model):
     def action_occupied(self):
         for record in self:
             record.apart_status = 'occupied'
-            if record.parking_id:
-                record.parking_id.parking_status = 'allocated'
 
     def action_availabe_for_rent(self):
         for record in self:

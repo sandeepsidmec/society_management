@@ -1,0 +1,53 @@
+<odoo>
+    <record id="mail_template_rent_confirm" model="mail.template">
+        <field name="name">Rent Confirmation</field>
+        <field name="model_id" ref="model_society_rent"/>
+        <field name="email_to">{{ object.r_tenant_id.t_email }}</field>
+        <field name="email_from">{{ object.company_id.email }}</field>
+        <field name="subject">Rent Confirmation for Apartment {{ object.r_apart_id.apart_num }}</field>
+        <field name="body_html" type="html">
+            <table border="0" cellpadding="0" cellspacing="0"
+                   style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                <tr>
+                    <td align="center" style="min-width: 590px; padding: 20px;">
+                        <h3>Rent Payment Confirmation</h3>
+                        <p>
+                            Dear <t t-out="object.r_tenant_id.tenant_id.name"/>,
+                        </p>
+                        <p>
+                            This is to confirm that a payment of
+                            <strong><t t-out="object.formatted_rent_amt"/></strong>
+                            has been received for the month of
+                            <strong><t t-out="object.r_month"/><t t-out="object.r_year"/></strong>
+                            concerning apartment
+                            <strong><t t-out="object.r_apart_id.apart_num"/></strong>.
+                        </p>
+                        <p>
+                            Payment Date:
+                            <strong><t t-out="object.r_date.strftime('%d %B %Y')"/></strong>
+                        </p>
+                        <p>
+                            Thank you for your payment.
+                        </p>
+                        <br/>
+                        <p>
+                            Regards,
+                            <br/>
+                            <t t-out="object.user_id.name"/>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="min-width: 590px;">
+                        Powered by
+                        <a target="_blank" href="https://www.odoo.com?utm_source=db&amp;utm_medium=email"
+                           style="color: #875A7B;">Odoo
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </field>
+        <field name="lang">{{ object.user_id.lang }}</field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+</odoo>

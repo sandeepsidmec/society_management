@@ -31,6 +31,7 @@
         "models/reports/maintenance_report.xml",
         "models/reports/monthly_report.xml",
         "data/ir_sequence.xml",
+        "data/rent_confirm_mail.xml",
         "settings/apartment_type_settings.xml",
         "settings/asset_category_settings.xml",
         "settings/bill_type_settings.xml",
