@@ -7,7 +7,8 @@ class Report(models.Model):
     _rec_name = 'report'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    report = fields.Selection(selection=[('monthly', 'Monthly'), ('yearly', 'Yearly')])
+    society_id=fields.Many2one(comodel_name="society_society.settings", string="society_id")
+    report = fields.Selection(selection=[('monthly', 'Monthly'), ('yearly', 'Yearly')],default="monthly")
     month = fields.Selection([
         ('January', 'January'),
         ('February', 'February'),
@@ -26,4 +27,7 @@ class Report(models.Model):
         (str(y), str(y)) for y in range(2020, 2026)])
 
     def pdf_report(self):
-        pass
+        return self.env.ref('society_management.report_maintenance_pdf').report_action(self)
+
+    def mon_pdf_report(self):
+        return self.env.ref('society_management.report_monthly_maintenance_pdf').report_action(self)

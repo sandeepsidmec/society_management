@@ -1,7 +1,7 @@
 from odoo import models, fields
 
 
-class SocietySettings(models.Model):
+class AppSettings(models.Model):
     _name = 'society.settings'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
@@ -12,12 +12,13 @@ class SocietySettings(models.Model):
     currency_id = fields.Many2one(comodel_name="res.currency", string="Currency")
 
 
-class AppSettings(models.Model):
+class SocietySettings(models.Model):
     _name = 'society_society.settings'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _rec_name = 'name'
 
 
     name = fields.Char("Name")
     email = fields.Char(string="Email")
-    phone = fields.Integer(string="Phone Number")
+    phone = fields.Char(string="Phone Number")
     address = fields.Text("Address")

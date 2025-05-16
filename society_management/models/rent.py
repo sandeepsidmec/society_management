@@ -8,7 +8,7 @@ class Rent(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
 
-
+    society_id=fields.Many2one(comodel_name="society_society.settings", string="society_id")
     r_apart_id=fields.Many2one("society.apartment","Apartment Number")
     r_tenant_id=fields.Many2one("society.tenant","Tenant Name")
     r_month = fields.Selection([

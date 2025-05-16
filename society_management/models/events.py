@@ -1,3 +1,5 @@
+from email.policy import default
+
 from odoo import models, fields, api
 
 
@@ -15,7 +17,7 @@ class Events(models.Model):
     s_date=fields.Char("Start Date & Time",compute="date_time")
     e_date = fields.Char("End Date & Time", compute="date_time")
     e_status=fields.Selection([('pending','Pending'),('completed','Completed'),('cancelled','Cancelled')],"Status")
-    role = fields.Selection(selection=[('role', 'Role'),('user', 'User')])
+    role = fields.Selection(selection=[('role', 'Role'),('user', 'User')],default='role')
     group_ids = fields.Many2many(
             'res.groups',
             string='Role',
@@ -28,8 +30,14 @@ class Events(models.Model):
         for i in self:
             if i.start:
                 i.s_date = i.start.strftime("%d %B %Y, %I:%M %p")
+            else:
+                i.s_date = False
             if i.end:
                 i.e_date = i.end.strftime("%d %B %Y, %I:%M %p")
+            else:
+                i.e_date = False
+
+
 
     def action_pending(self):
         for record in self:

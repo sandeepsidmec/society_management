@@ -13,7 +13,8 @@
                             <field name="year"/>
 
                     </group>
-                    <button name="pdf_report" type="object" string="Download PDF" class="btn-info"/>
+                    <button name="pdf_report" type="object" string="Download Yearly PDF" class="btn-info" invisible="report == 'monthly'"/>
+                    <button name="mon_pdf_report" type="object" string="Download Monthly PDF" class="btn-info" invisible="report == 'yearly'"/>
                 </sheet>
 
                 <chatter/>
