@@ -145,6 +145,7 @@ class Rent(models.Model):
                     cb.c_status = 'paid'
 
             record.r_apart_id.apart_status = 'occupied'
+            record.r_apart_id.parking_id.parking_status = 'allocated'
 
 
     def action_unpaid(self):
@@ -176,6 +177,7 @@ class Rent(models.Model):
                     cb.c_status = 'unpaid'
 
             record.r_apart_id.apart_status = 'occupied'
+            record.r_apart_id.parking_id.parking_status ='allocated'
 
 
 
