@@ -34,6 +34,15 @@ class Rent(models.Model):
     formatted_rent_amt = fields.Char(string="Rent Amount", compute="_compute_formatted_rent_amt", store=False)
     r_date = fields.Date("Payment Date",default=fields.Date.context_today)
 
+    user_id = fields.Many2one("res.users", "user",compute="compute_user_company")
+    company_id = fields.Many2one("res.company", "Company",compute="compute_user_company")
+
+    # users and companies fetch
+    def compute_user_company(self):
+        for rec in self:
+            rec.user_id = self.env.user
+            rec.company_id = self.env.user.company_id.id
+
     # @api.onchange('r_apart_id')
     # def rent_apart(self):
     #    for i in self:
@@ -49,6 +58,37 @@ class Rent(models.Model):
             else:
                 i.rent_for =f"invalid"
 
+    def send_email(self):
+        for rec in self:
+            # print('hlo')
+
+            template = self.env.ref("society_management.mail_template_rent_confirm")
+            ctx = {
+                'default_model': 'society.rent',
+                'default_res_ids': self.ids,
+                'default_composition_mode': 'comment',
+                'default_use_template': True,
+                # 'default_email_layout_xmlid': 'society_management.mail_template_rent_confirm',
+                # 'email_notification_allow_footer': True,
+                'default_template_id': template.id,
+                # 'proforma': self.env.context.get('proforma', False),
+            }
+            action = {
+                'type': 'ir.actions.act_window',
+                'view_mode': 'form',
+                'res_model': 'mail.compose.message',
+                'views': [(False, 'form')],
+                'view_id': False,
+                'target': 'new',
+                'context': ctx,
+            }
+            template.send_mail(rec.id, force_send=True)
+            return action
+
+    # def send_email(self):
+    #     for rec in self:
+    #         template = self.env.ref("society_management.mail_template_rent_confirm")
+    #         template.send_mail(rec.id, force_send=True)
 
     @api.onchange("r_apart_id")
     def onchange_r_apart_id(self):
