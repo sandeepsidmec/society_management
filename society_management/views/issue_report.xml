@@ -41,7 +41,8 @@
             <list string="issue_report">
                 <field name="issue_title"/>
                 <field name="asset_id"/>
-                <field name="state" widget="badge"/>
+                <field name="state" widget="badge" decoration-warning="state == 'pending'" decoration-info="state == 'process'" decoration-success="state == 'resolved'"/>
+
                 <field name="priority"/>
 
             </list>

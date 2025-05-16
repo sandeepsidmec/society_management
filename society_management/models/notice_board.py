@@ -9,8 +9,13 @@ class NoticeBoard(models.Model):
 
     title=fields.Char("Title")
     desc=fields.Text("Description")
-    # role=fields.Many2many("",string="Role")
     date=fields.Char("Date & Time",compute="date_time")
+    group_ids = fields.Many2many(
+            'res.groups',
+            string='Role',
+            domain="[('name', 'in', ['Society_Admin','Owner', 'Tenant'])]"
+        )
+
 
     def date_time(self):
         for i in self:

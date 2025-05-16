@@ -38,7 +38,7 @@
         <field name="arch" type="xml">
             <list string="Amenities">
                 <field name="amenity_name"/>
-                <field name="amenity_status" widget="badge"/>
+                <field name="amenity_status" widget="badge" decoration-info="amenity_status == 'not_available'" decoration-success="amenity_status == 'available'"/>
                 <field name="l_booking_req"/>
                 <field name="l_slot_time"/>
                 <field name="l_mul_booking"/>

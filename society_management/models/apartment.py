@@ -21,6 +21,8 @@ class Apartment(models.Model):
 
     tenant_id = fields.Many2one("society.tenant", string="Current Tenant", compute="_compute_tenant", store=True)
 
+
+
     def _compute_tenant(self):
         for rec in self:
             rent = self.env['society.rent'].search(

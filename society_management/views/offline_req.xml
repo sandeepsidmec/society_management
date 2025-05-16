@@ -37,7 +37,7 @@
                 <field name="r_tenant_id"/>
                 <field name="tot_cost"/>
                 <field name="m_y"/>
-                <field name="status" widget="badge"/>
+                <field name="status" widget="badge" decoration-warning="status == 'unpaid'" decoration-success="status == 'paid'"/>
             </list>
         </field>
     </record>

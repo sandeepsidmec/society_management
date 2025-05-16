@@ -9,7 +9,7 @@ class CommonArea(models.Model):
 
 
 
-    c_apart_id=fields.Many2one("society.apartment","Apartment Type",tracking=True)
+    c_apart_id=fields.Many2one("society.apartment","Apartment Number",tracking=True)
     c_bill_type_id = fields.Many2one("bill.type.settings", "Bill Type",domain=[('bill_type_category', "=", 'common_area')])
     c_bill_date=fields.Date("Bill Date")
     c_bill_amt=fields.Float("Bill Amount")

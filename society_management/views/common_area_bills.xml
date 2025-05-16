@@ -42,7 +42,7 @@
                 <field name="c_apart_id"/>
                 <field name="c_bill_type_id"/>
                 <field name="c_bill_date"/>
-                <field name="c_status" widget="badge"/>
+                <field name="c_status" widget="badge" decoration-info="c_status == 'unpaid'" decoration-success="c_status == 'paid'"/>
                 <field name="c_bill_payment" optional="True"/>
 
 

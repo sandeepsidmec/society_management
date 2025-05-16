@@ -9,8 +9,7 @@
                     <group>
                         <field name="title"/>
                         <field name="desc"/>
-<!--                        <field name=""/>-->
-
+                        <field name="group_ids" widget="many2many_checkboxes" required="1"/>
                     </group>
                 </sheet>
                 <chatter/>
@@ -23,6 +22,7 @@
         <field name="arch" type="xml">
             <list string="Notice Board">
                 <field name="title"/>
+                <field name="group_ids" widget="many2many_tags"/>
                 <field name="date"/>
 
             </list>

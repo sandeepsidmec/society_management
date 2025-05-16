@@ -20,3 +20,13 @@ class Visitors(models.Model):
     v_photo=fields.Binary("Upload Photo")
     v_status=fields.Selection([("allow","Allow"),("deny","Deny")],"Status")
 
+    def action_allow(self):
+        for record in self:
+            record.v_status = 'allow'
+
+    def action_deny(self):
+        for record in self:
+            record.v_status = 'deny'
+
+
+

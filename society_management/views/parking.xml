@@ -30,7 +30,7 @@
             <list string="Parking">
                 <field name="parking_code"/>
                   <field name="apart_id"/>
-                  <field name="parking_status" widget="badge"/>
+                  <field name="parking_status" widget="badge" decoration-info="parking_status == 'not_allocated'" decoration-success="parking_status == 'allocated'"/>
             </list>
         </field>
     </record>
