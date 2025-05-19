@@ -27,7 +27,7 @@ class Amenities(models.Model):
         for i in self:
             if i.booking_req:
                 i.l_booking_req=f"Yes"
-                i.l_slot_time=f"Start time:{i.start_time}\n End time:{i.end_time}\n Slot time:{i.slot_time}"
+                i.l_slot_time=f"Start time:{i.start_time.strftime("%d %B %Y, %I:%M %p")}\n End time:{i.end_time.strftime("%d %B %Y, %I:%M %p")}\n Slot time:{i.slot_time}"
             else:
                 i.l_booking_req = f"No"
                 i.l_slot_time = ""

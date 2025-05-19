@@ -57,25 +57,25 @@ class Report(models.Model):
 
 
         return summary
-    def get_monthly_summary(self):
-        if not self.year:
-            return {}
-        # Prepare months
-        payment_records = self.env['society.rent'].search([('r_year', '=', self.year)])
-        months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-        # Create dictionary for each month
-        summary = {month: {'amount': 0,'pending':0} for month in months}
-
-        for record in payment_records:
-            if record.r_month:
-                month = record.r_month[:3].capitalize()  # e.g., 'May'
-                if month in summary:
-                    if record.r_status=='paid':
-                        summary[month]['amount'] += record.rent_amt
-                    else:
-                        summary[month]['pending'] += record.rent_amt
-
-
-        return summary
+    # def get_monthly_summary(self):
+    #     if not self.year:
+    #         return {}
+    #     # Prepare months
+    #     payment_records = self.env['society.rent'].search([('r_year', '=', self.year)])
+    #     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    #               'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    #
+    #     # Create dictionary for each month
+    #     summary = {month: {'amount': 0,'pending':0} for month in months}
+    #
+    #     for record in payment_records:
+    #         if record.r_month:
+    #             month = record.r_month[:3].capitalize()  # e.g., 'May'
+    #             if month in summary:
+    #                 if record.r_status=='paid':
+    #                     summary[month]['amount'] += record.rent_amt
+    #                 else:
+    #                     summary[month]['pending'] += record.rent_amt
+    #
+    #
+    #     return summary
