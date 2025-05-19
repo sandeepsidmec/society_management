@@ -1,13 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="maintenance_report">
         <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="object">
-                <t t-call="web.external_layout">
 
-                </t>
+
+            <t t-foreach="docs" t-as="doc">
+                <div class="page" style="text-align:center;">
+                    <h2>MAINTENANCE REPORT</h2>
+                    <strong>ANNUALLY</strong>
+                </div>
+
+                <div style="text-align:right;">
+                    <strong>Year</strong>
+                    <br/>
+                    <t t-esc="doc.year"/>
+                </div>
+                <div style="margin-left:10px;">
+                    <strong>Society Name</strong>
+                    <br/>
+                    <t t-esc="doc.society_id.name"/>
+                    <br/>
+                    <br/>
+                    <strong>Address</strong>
+                    <br/>
+                    <t t-esc="doc.society_id.address"/>
+                    <br/>
+                    <br/>
+                    <strong>Total Apartments</strong>
+                    <br/>
+                    <t t-esc="doc.tower_id.no_of_apart"/>
+                </div>
+
+
+                <table class="table table-sm table-bordered"
+                       style="width: 100%; border: 1px solid black; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid black;">Apartment</th>
+                            <th style="border: 1px solid black;">Jan</th>
+                            <th style="border: 1px solid black;">Feb</th>
+                            <th style="border: 1px solid black;">Mar</th>
+                            <th style="border: 1px solid black;">Apr</th>
+                            <th style="border: 1px solid black;">May</th>
+                            <th style="border: 1px solid black;">Jun</th>
+                            <th style="border: 1px solid black;">Jul</th>
+                            <th style="border: 1px solid black;">Aug</th>
+                            <th style="border: 1px solid black;">Sep</th>
+                            <th style="border: 1px solid black;">Oct</th>
+                            <th style="border: 1px solid black;">Nov</th>
+                            <th style="border: 1px solid black;">Dec</th>
+                            <th style="border: 1px solid black;">Amount Billed (INR)</th>
+                            <th style="border: 1px solid black;">Amount Paid (INR)</th>
+                            <th style="border: 1px solid black;">Pending (INR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr >
+                            <td style="border: 1px solid black;">Total</td>
+                            <t t-set="summary" t-value="docs.get_yearly_summary()"/>
+                            <t t-foreach="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']"
+                               t-as="m">
+                                <td style="border: 1px solid black;">
+                                    <t t-esc="str(summary[m]['count']) if summary[m]['count'] else '0'"/>
+                                </td>
+                            </t>
+                            <td style="border: 1px solid black;">
+                                <t t-esc="sum(summary[m]['amount'] + summary[m]['pending'] for m in summary)"/>
+
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <t t-esc="sum(summary[m]['amount'] for m in summary)"/>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                 <t t-esc="sum(summary[m]['pending'] for m in summary)"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </t>
         </t>
 
+
     </template>
 </odoo>
+

@@ -7,21 +7,26 @@
             <form string="report">
                 <sheet>
 
-                        <group>
-                            <field name="report" widget="radio"/>
-                            <field name="month" invisible="report == 'yearly'"/>
-                            <field name="year"/>
+                    <group>
+                        <field name="society_id"/>
+                        <field name="tower_id"/>r_month
+<!--                        <field name="r_month"/>-->
+                        <field name="report" widget="radio"/>
+                        <field name="month" invisible="report == 'yearly'"/>
+                        <field name="year"/>
 
                     </group>
-                    <button name="pdf_report" type="object" string="Download Yearly PDF" class="btn-info" invisible="report == 'monthly'"/>
-                    <button name="mon_pdf_report" type="object" string="Download Monthly PDF" class="btn-info" invisible="report == 'yearly'"/>
+                    <button name="pdf_report" type="object" string="Download Yearly PDF" class="btn-info"
+                            invisible="report == 'monthly'"/>
+                    <button name="mon_pdf_report" type="object" string="Download Monthly PDF" class="btn-info"
+                            invisible="report == 'yearly'"/>
                 </sheet>
 
                 <chatter/>
             </form>
         </field>
     </record>
-        <record id="action_society_reports" model="ir.actions.act_window">
+    <record id="action_society_reports" model="ir.actions.act_window">
         <field name="name">Report</field>
         <field name="res_model">society.reports</field>
         <field name="view_mode">list,form</field>

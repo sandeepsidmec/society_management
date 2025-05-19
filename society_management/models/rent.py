@@ -4,7 +4,7 @@ from datetime import datetime
 class Rent(models.Model):
     _name = 'society.rent'
     _description = 'Society_Rent'
-    _rec_name = "r_apart_id"
+    _rec_name = "r_month"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
 

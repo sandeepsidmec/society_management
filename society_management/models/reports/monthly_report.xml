@@ -1,48 +1,71 @@
 <odoo>
     <template id="monthly_maintenance_report">
         <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="object">
-                    <div class="text-center">
-                        <h2>MAINTENANCE REPORT</h2>
-                        <strong>MONTHLY</strong>
-                    </div>
 
-                    <div class="mt16">
-                        <strong>Society Name</strong><br/>
-                      <t t-out="object.society_id.name"/>
-                        <br/>
-                        <strong>Address</strong><br/>
-<!--                        <t t-esc="object.society_id.address"/>-->
-                        <br/>
-                        <strong>Total Apartments</strong><br/>
-                        0
-                    </div>
 
-                    <div class="mt16 text-right">
-                        <strong>Month &amp; Year</strong><br/>
-<!--                        <t t-esc="object.r_month"/> <t t-esc="object.r_year"/>-->
-                    </div>
+            <t t-foreach="docs" t-as="doc">
+                <div class="page" style="text-align:center;">
+                    <h2>MAINTENANCE REPORT</h2>
+                    <strong>MONTHLY</strong>
+                </div>
 
-                    <table class="table table-sm mt16">
-                        <thead>
-                            <tr>
-                                <th>Apartment</th>
-                                <th>Amount Billed (INR)</th>
-                                <th>Amount Paid (INR)</th>
-                                <th>Pending (INR)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Total</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </t>
+                <div style="text-align:right;">
+                    <strong>Month &amp; Year</strong>
+                    <br/>
+                    <t t-esc="doc.month"/>
+                    <t t-esc="doc.year"/>
+                </div>
+                <div style="margin-left:10px;">
+                    <strong>Society Name</strong>
+                    <br/>
+                    <t t-esc="doc.society_id.name"/>
+                    <br/>
+                    <br/>
+                    <strong>Address</strong>
+                    <br/>
+                    <t t-esc="doc.society_id.address"/>
+                    <br/>
+                    <br/>
+                    <strong>Total Apartments</strong>
+                    <br/>
+                    <t t-esc="doc.tower_id.no_of_apart"/>
+                </div>
+
+
+                <table class="table table-sm table-bordered"
+                       style="width: 100%; border: 1px solid black; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid black;">Apartment</th>
+                            <th style="border: 1px solid black;">Amount Billed (INR)</th>
+                            <th style="border: 1px solid black;">Amount Paid (INR)</th>
+                            <th style="border: 1px solid black;">Pending (INR)</th>
+                        </tr>
+                    </thead>
+                   <tbody>
+                        <tr >
+                            <td style="border: 1px solid black;">Total</td>
+                            <t t-set="summary" t-value="docs.get_monthly_summary()"/>
+                            <t t-foreach="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']"
+                               t-as="m">
+
+                            </t>
+                            <td style="border: 1px solid black;">
+                                <t t-esc="sum(summary[m]['amount'] + summary[m]['pending'] for m in summary)"/>
+
+                            </td>
+                            <td style="border: 1px solid black;">
+                                <t t-esc="sum(summary[m]['amount'] for m in summary)"/>
+                            </td>
+                            <td style="border: 1px solid black;">
+                                 <t t-esc="sum(summary[m]['pending'] for m in summary)"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </t>
+        </t>
+
 
     </template>
 </odoo>
