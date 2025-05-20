@@ -1,47 +1,39 @@
-from odoo import models, fields, api
+from odoo import models, fields,api
+from odoo.exceptions import ValidationError
 from datetime import timedelta
 
 class BookAmenities(models.Model):
     _name = 'society.book_amenities'
-    _description = 'Society Book Amenities'
+    _description = 'Society_Book_Amenities'
     _rec_name = 'b_amenity_id'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     b_amenity_id = fields.Many2one("society.amenities", "Amenity Name", tracking=True)
     booking_date = fields.Date("Booking Date")
     b_no_of_per = fields.Integer("Number of Persons")
-    booking_time = fields.Char("Booking Time")
-    available_times = fields.Selection([], string="Available Time Slots", compute="_compute_available_times", store=False)
-    start = fields.Char("Start Time", compute="_compute_times")
-    end = fields.Char("End Time", compute="_compute_times")
+    booking_time = fields.Datetime("Booking Time")
+    start = fields.Char("Start Time")
+    end = fields.Char("End Time")
 
-    @api.depends('b_amenity_id')
-    def _compute_times(self):
+    @api.constrains('booking_time', 'b_amenity_id')
+    def _check_slot_overlap(self):
         for rec in self:
-            if rec.b_amenity_id:
-                rec.start = rec.b_amenity_id.start_time.strftime("%I:%M %p") if rec.b_amenity_id.start_time else ''
-                rec.end = rec.b_amenity_id.end_time.strftime("%I:%M %p") if rec.b_amenity_id.end_time else ''
-            else:
-                rec.start = ''
-                rec.end = ''
+            if not rec.booking_time or not rec.b_amenity_id or not rec.b_amenity_id.slot_time:
+                continue
 
-    @api.depends('b_amenity_id')
-    def _compute_available_times(self):
-        for rec in self:
-            times = []
-            if rec.b_amenity_id and rec.b_amenity_id.start_time and rec.b_amenity_id.end_time:
-                start = rec.b_amenity_id.start_time
-                end = rec.b_amenity_id.end_time
-                slot_minutes = rec.b_amenity_id.slot_time or 30
+            slot_duration = timedelta(minutes=rec.b_amenity_id.slot_time)
+            new_start = rec.booking_time
+            new_end = new_start + slot_duration
 
-                while start < end:
-                    time_str = start.strftime('%I:%M %p')
-                    times.append((time_str, time_str))
-                    start += timedelta(minutes=slot_minutes)
+            overlapping = self.env['society.book_amenities'].search([
+                ('id', '!=', rec.id),
+                ('b_amenity_id', '=', rec.b_amenity_id.id),
+                ('booking_time', '!=', False),
+            ])
 
-            rec.available_times = False  # Required to clear previous values
-            rec._fields['available_times'].selection = times
+            for existing in overlapping:
+                existing_start = existing.booking_time
+                existing_end = existing_start + timedelta(minutes=existing.b_amenity_id.slot_time)
 
-    @api.onchange('available_times')
-    def _onchange_available_times(self):
-        self.booking_time = self.available_times
+                if (new_start < existing_end and new_end > existing_start):
+                    raise ValidationError("Selected time slot overlaps with an existing booking.")

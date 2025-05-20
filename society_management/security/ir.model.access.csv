@@ -28,6 +28,10 @@ access_society_visitors,access_society_visitors,model_society_visitors,,1,1,1,1
 access_society_events,access_society_events,model_society_events,,1,1,1,1
 access_society_reports,access_society_reports,model_society_reports,,1,1,1,1
 
+access_society_add_services,access_society_add_services,model_society_add_services,,1,1,1,1
+access_society_services,access_society_services,model_society_services,,1,1,1,1
+access_society_line_services,access_society_line_services,model_society_line_services,,1,1,1,1
+
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
 access_society_society_settings,access_society_society_settings,model_society_society_settings,,1,1,1,1
 access_apartment_type_settings,access_apartment_type_settings,model_apartment_type_settings,,1,1,1,1
@@ -38,4 +42,5 @@ access_currency_settings,access_currency_settings,model_currency_settings,,1,1,1
 access_maintenance_settings,access_maintenance_settings,model_maintenance_settings,,1,1,1,1
 access_maintenance_settings_lines,access_maintenance_settings_lines,model_maintenance_settings_lines,,1,1,1,1
 access_visitor_type_settings,access_visitor_type_settings,model_visitor_type_settings,,1,1,1,1
+access_service_type_settings,access_service_type_settings,model_service_type_settings,,1,1,1,1
 

@@ -27,9 +27,11 @@
         "views/visitor.xml",
         "views/events.xml",
         "views/report.xml",
-        "models/reports/report.xml",
-        "models/reports/maintenance_report.xml",
-        "models/reports/monthly_report.xml",
+        "views/add_services.xml",
+        "views/services.xml",
+        "reports/report.xml",
+        "reports/maintenance_report.xml",
+        "reports/monthly_report.xml",
         "data/ir_sequence.xml",
         "data/rent_confirm_mail.xml",
         "settings/apartment_type_settings.xml",
@@ -39,6 +41,7 @@
         "settings/currency_settings.xml",
         "settings/maintenance_settings.xml",
         "settings/visitors_type_settings.xml",
+        "settings/service_type_settings.xml",
         "views/menu.xml",
     ]
 
