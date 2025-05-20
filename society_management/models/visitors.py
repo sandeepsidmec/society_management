@@ -20,6 +20,17 @@ class Visitors(models.Model):
     v_photo=fields.Binary("Upload Photo")
     v_status=fields.Selection([("allow","Allow"),("deny","Deny")],"Status")
 
+    tenant_id = fields.Many2one("society.tenant", string="Current Tenant", compute="_compute_tenant", store=True)
+
+    def _compute_tenant(self):
+        for rec in self:
+            rent = self.env['society.rent'].search(
+                [('r_apart_id', '=', rec.id), ('r_tenant_id', '!=', False)],
+                order='id desc', limit=1
+            )
+            rec.tenant_id = rent.r_tenant_id if rent else False
+
+
     def action_allow(self):
         for record in self:
             record.v_status = 'allow'
