@@ -3,9 +3,10 @@ from odoo import fields, models,api
 class Clock_In_Out(models.TransientModel):
     _name = 'society.clock.wizard'
     _description = 'clock_in/out_report'
+    _rec_name = 'provider_id'
 
     service_id= fields.Many2one("service.type.settings",String="Service Person")
-    provider_id=fields.Many2one("society.line.services","Service Provider")
+    provider_id=fields.Many2one("society.add.services","Service Provider")
     clock_in=fields.Datetime("Clock In")
     clock_out=fields.Datetime("Clock Out")
 

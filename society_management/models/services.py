@@ -14,7 +14,7 @@ class Services(models.Model):
 class ServicesLines(models.Model):
     _name = 'society.line.services'
     _description = 'Society_line_Services'
-    _rec_name = 'service_id'
+    _rec_name = 'contact'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
 
