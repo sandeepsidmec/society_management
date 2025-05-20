@@ -28,4 +28,5 @@ from . import notice_board
 from . import visitors
 from . import events
 from . import report
+from . import add_services
 from . import services

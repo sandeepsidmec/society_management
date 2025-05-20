@@ -1,24 +1,14 @@
-from odoo import models,fields
+from odoo import models, fields, api
 
 
-class Services(models.Model):
-    _name = 'society.services'
-    _description = 'Society_Services'
-    _rec_name = 'service_id'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
-
-    service_id = fields.Many2one("society.add.services", "Select Services")
-    service_lines = fields.One2many("society.line.services", inverse_name="service_id", string="Services")
-
-
-class ServicesLines(models.Model):
-    _name = 'society.line.services'
-    _description = 'Society_line_Services'
+class AddServices(models.Model):
+    _name = 'society.add.services'
+    _description = 'Society_add_Services'
     _rec_name = 'service_id'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
 
-    service_id=fields.Many2one("society.services","Select Services")
+    service_id=fields.Many2one("service.type.settings","Select Services")
     tower_id=fields.Many2one("society.tower","Select Tower")
     floor_id=fields.Many2one("society.floor","Select Floor")
     apartment_id=fields.Many2one("society.apartment","Select Apartment")

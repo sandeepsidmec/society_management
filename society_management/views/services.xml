@@ -1,59 +1,58 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_maid_services_form" model="ir.ui.view">
-        <field name="name">services</field>
-        <field name="model">society.maid_services</field>
-        <field name="arch" type="xml">
-            <form string="Services">
-                <sheet>
-                    <group>
+    <data>
+        <record id="view_service_form" model="ir.ui.view">
+            <field name="name">services</field>
+            <field name="model">society.services</field>
+            <field name="arch" type="xml">
+                <form string="services">
+                    <sheet>
                         <group>
                             <field name="service_id"/>
-                            <field name="tower_id"/>
-                            <field name="floor_id"/>
-                            <field name="apartment_id"/>
-                            <field name="contact"/>
-                            <field name="contact_no"/>
                         </group>
-                        <group>
-                            <field name="company"/>
-                            <field name="website"/>
-                            <field name="frequency"/>
-                            <field name="price"/>
-                            <field name="desc"/>
-                            <field name="status"/>
-                            <field name="photo"/>
-                        </group>
-                    </group>
-                </sheet>
-                <chatter/>
-            </form>
-        </field>
-    </record>
-    <record id="view_maid_services_list" model="ir.ui.view">
-        <field name="name">services</field>
-        <field name="model">society.maid_services</field>
-        <field name="arch" type="xml">
-            <list string="Services">
-                <field name="contact"/>
-                <field name="service_id"/>
-                <field name="contact_no"/>
-                <field name="status" widget="badge" decoration-info="status == 'available'"
-                       decoration-success="status == 'not_available'"/>
-                <field name="l_help"/>
-<!--                <field name="l_price" widget="badge" decoration-success="True"/>-->
-                <field name="l_price"/>
-
-            </list>
-        </field>
-    </record>
-
-
-    <record id="action_society_maid_services" model="ir.actions.act_window">
-        <field name="name">Services</field>
-        <field name="res_model">society.maid_services</field>
-        <field name="view_mode">list,form</field>
-        <field name="view_id" ref="view_maid_services_list"/>
-    </record>
-
+                        <notebook>
+                            <page string="Service lines">
+                                <field name="service_lines">
+                                    <list editable="bottom">
+                                        <field name="contact"/>
+                                        <field name="service_id"/>
+                                        <field name="contact_no"/>
+                                        <field name="status" widget="badge" decoration-info="status == 'available'"
+                                               decoration-success="status == 'not_available'"/>
+                                        <field name="l_help"/>
+                                        <!--                <field name="l_price" widget="badge" decoration-success="True"/>-->
+                                        <field name="l_price"/>
+                                    </list>
+                                    <form>
+                                        <field name="service_id"/>
+                                        <field name="tower_id"/>
+                                        <field name="floor_id"/>
+                                        <field name="apartment_id"/>
+                                        <field name="contact"/>
+                                        <field name="contact_no"/>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+        <record id="view_service_list" model="ir.ui.view">
+            <field name="name">services</field>
+            <field name="model">society.services</field>
+            <field name="arch" type="xml">
+                <list string="services">
+                    <field name="service_id"/>
+                </list>
+            </field>
+        </record>
+        <record id="action_society_services" model="ir.actions.act_window">
+            <field name="name">services</field>
+            <field name="res_model">society.services</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_service_list"/>
+        </record>
+    </data>
 </odoo>
