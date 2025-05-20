@@ -1,16 +1,17 @@
 from odoo import models, fields, api
 from datetime import datetime
 
+
 class Report(models.Model):
     _name = 'society.reports'
     _description = 'Society_Reports'
     _rec_name = 'report'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    society_id=fields.Many2one(comodel_name="society_society.settings", string="society_id")
-    r_month=fields.Many2one(comodel_name="society.rent", string="r_month")
-    tower_id=fields.Many2one(comodel_name="society.tower", string="Tower")
-    report = fields.Selection(selection=[('monthly', 'Monthly'), ('yearly', 'Yearly')],default="monthly")
+    society_id = fields.Many2one(comodel_name="society_society.settings", string="society_id")
+    r_month = fields.Many2one(comodel_name="society.rent", string="r_month")
+    tower_id = fields.Many2one(comodel_name="society.tower", string="Tower")
+    report = fields.Selection(selection=[('monthly', 'Monthly'), ('yearly', 'Yearly')], default="monthly")
     month = fields.Selection([
         ('January', 'January'),
         ('February', 'February'),
@@ -43,18 +44,17 @@ class Report(models.Model):
                   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
         # Create dictionary for each month
-        summary = {month: {'count': 0, 'amount': 0,'pending':0} for month in months}
+        summary = {month: {'count': 0, 'amount': 0, 'pending': 0} for month in months}
 
         for record in payment_records:
             if record.r_month:
                 month = record.r_month[:3].capitalize()  # e.g., 'May'
                 if month in summary:
                     summary[month]['count'] += 1
-                    if record.r_status=='paid':
-                        summary[month]['amount'] += record.rent_amt
+                    if record.r_status == 'paid':
+                        summary[month]['amount'] += record.formatted_rent_amt
                     else:
-                        summary[month]['pending'] += record.rent_amt
-
+                        summary[month]['pending'] += record.formatted_rent_amt
 
         return summary
     # def get_monthly_summary(self):
