@@ -21,7 +21,7 @@
                                         <field name="status" widget="badge" decoration-info="status == 'available'"
                                                decoration-success="status == 'not_available'"/>
                                         <field name="l_help"/>
-                                        <!--                <field name="l_price" widget="badge" decoration-success="True"/>-->
+
                                         <field name="l_price"/>
                                     </list>
                                     <form>

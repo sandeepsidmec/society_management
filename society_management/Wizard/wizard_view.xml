@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_clock_in_report" model="ir.ui.view">
+        <field name="name">Clock_In/Clock_Out</field>
+        <field name="model">society.clock.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Clock_In/Out">
+                <group string="Clock Report">
+                    <group>
+                        <field name="service_id"/>
+                        <field name="provider_id"/>
+                        <field name="clock_in"/>
+                        <field name="clock_out"/>
+                    </group>
+                </group>
+                <footer>
+
+                    <button string="Save"
+                            name="create_clock_record"
+                            type="object"
+                            class="oe_highlight"/>
+
+
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_clock_wizard" model="ir.actions.act_window">
+        <field name="name">Clock_In/Clock_Out</field>
+        <field name="res_model">society.clock.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <!--        <field name="target">current</field>-->
+    </record>
+</odoo>

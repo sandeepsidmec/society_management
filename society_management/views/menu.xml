@@ -39,19 +39,13 @@
     <menuitem id="menu_events" name="Events" parent="society_management" action="action_society_events"/>
 
     <menuitem id="service" name="Services" parent="society_management"/>
-    <menuitem id="services" name="Services" parent="service" action="action_society_services"/>
-    <menuitem id="add_services" name="Add Services" parent="service" action="action_society_add_services"/>
+    <menuitem id="services" name="Services" parent="service" action="action_society_services" sequence="1"/>
+    <menuitem id="add_services" name="Add Services" parent="service" action="action_society_add_services" sequence="2"/>
+    <menuitem id="clock" name="Clock_In/Out" parent="service" action="action_society_clock" sequence="3"/>
 
-
-    <menuitem id="menu_report" name="Report" parent="society_management" groups="society_management.group_society_admin"/>
+    <menuitem id="menu_report" name="Report" parent="society_management"
+              groups="society_management.group_society_admin"/>
     <menuitem id="report" name="Maintenance Report" parent="menu_report" action="action_society_reports"/>
-
-    <menuitem id="menu_services" name="Services" parent="society_management"/>
-    <menuitem id="add_services" name="Add Services" parent="menu_services" action="action_society_services"
-              sequence="1"/>
-    <menuitem id="services" name="Services" parent="menu_services" action="action_society_maid_services"/>
-    <menuitem id="services_lines" name="Services Lines" parent="menu_services" action="action_society_service_lines"/>
-
 
     <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100"
               groups="society_management.group_society_admin"/>
