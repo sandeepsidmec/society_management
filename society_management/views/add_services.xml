@@ -19,6 +19,7 @@
                             <field name="company"/>
                             <field name="website"/>
                             <field name="frequency"/>
+                            <field name="help"/>
                             <field name="price"/>
                             <field name="desc"/>
                             <field name="status"/>

@@ -17,11 +17,10 @@
                                         <field name="contact"/>
                                         <field name="service_id"/>
                                         <field name="contact_no"/>
-                                        <field name="status" widget="badge" decoration-info="status == 'available'"
-                                               decoration-success="status == 'not_available'"/>
-                                        <field name="l_help"/>
+                                        <field name="status"/>
+                                        <field name="help"/>
                                         <!--                <field name="l_price" widget="badge" decoration-success="True"/>-->
-                                        <field name="l_price"/>
+                                        <field name="price"/>
                                     </list>
                                     <form>
                                         <field name="service_id"/>

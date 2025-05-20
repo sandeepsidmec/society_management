@@ -32,6 +32,54 @@ class AddServices(models.Model):
     l_help=fields.Char("Daily Help Availability",compute="help_avail")
     l_price=fields.Text("Price",compute="lprice")
 
+    services_id = fields.Many2one('society.services', string="Linked Service")
+
+    @api.model
+    def create(self, vals):
+        # Create the actual add.services record first
+        record = super(AddServices, self).create(vals)
+
+        # Check if a society.services record with the same service_id already exists
+        services_record = self.env['society.services'].search([
+            ('service_id', '=', record.service_id.id)
+        ], limit=1)
+
+        if not services_record:
+            # Create new services record if not found
+            services_record = self.env['society.services'].create({
+                'service_id': record.service_id.id,
+            })
+
+        # Create service line under the found or new services record
+        self.env['society.line.services'].create({
+            'service': services_record.id,  # Link to society.services
+            'service_id': record.service_id.id,
+            'tower_id': record.tower_id.id,
+            'floor_id': record.floor_id.id,
+            'apartment_id': record.apartment_id.id,
+            'contact': record.contact,
+            'contact_no': record.contact_no,
+            'company': record.company,
+            'website': record.website,
+            'frequency': record.frequency,
+            'price': record.price,
+            'desc': record.desc,
+            'status': record.status,
+            'photo': record.photo,
+            'help': record.help,
+        })
+
+        return record
+    # def get_status(self):
+    #     for i in self:
+    #         records = self.env['society.line.services'].search([()])
+    #         for j in records:
+    #             if j.status:
+    #                 i.status=j.status
+    #             if j.frequency and j.price:
+                    # i.l_help=f"{j.status},{j.help}"
+
+
     def help_avail(self):
         for i in self:
             if i.help:
