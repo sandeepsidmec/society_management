@@ -47,7 +47,6 @@
     <menuitem id="menu_report" name="Report" parent="society_management" groups="society_management.group_society_admin"/>
     <menuitem id="report" name="Maintenance Report" parent="menu_report" action="action_society_reports"/>
 
-
     <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100"
               groups="society_management.group_society_admin"/>
     <menuitem id="society_management_app_settings" name="App Settings" action="action_society_settings"

@@ -14,13 +14,10 @@
                     </group>
                 </group>
                 <footer>
-
                     <button string="Save"
                             name="create_clock_record"
                             type="object"
                             class="oe_highlight"/>
-
-
                 </footer>
             </form>
         </field>

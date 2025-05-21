@@ -31,5 +31,3 @@ class Clock_In_Out(models.TransientModel):
             'view_mode': 'list',
             'target': 'current',
         }
-
-
