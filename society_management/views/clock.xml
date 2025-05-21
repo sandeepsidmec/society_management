@@ -2,6 +2,7 @@
 <odoo>
     <data>
         <record id="view_clock_list" model="ir.ui.view">
+
             <field name="name">society_clock</field>
             <field name="model">society.clock</field>
             <field name="arch" type="xml">
@@ -13,7 +14,8 @@
                     <button name="%(action_clock_wizard)d"
                             string="Update"
                             type="action"
-                            icon="fa-pencil-square-o"/>
+                            icon="fa-pencil-square-o"
+                    groups="society_management.group_society_admin"/>
                 </list>
             </field>
         </record>
