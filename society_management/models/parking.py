@@ -1,5 +1,5 @@
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 class Parking(models.Model):
     _name = 'society.parking'
@@ -14,13 +14,18 @@ class Parking(models.Model):
 
     tenant_id = fields.Many2one("society.tenant", string="Current Tenant", compute="_compute_tenant", store=True)
 
+    # def _compute_tenant(self):
+    #     for rec in self:
+    #         rent = self.env['society.rent'].search(
+    #             [('r_apart_id', '=', rec.apart_id.id), ('r_tenant_id', '!=', False)],
+    #             order='id desc', limit=1
+    #         )
+    #         rec.tenant_id = rent.r_tenant_id if rent else False
+
+    @api.depends('apart_id.tenant_id')
     def _compute_tenant(self):
         for rec in self:
-            rent = self.env['society.rent'].search(
-                [('r_apart_id', '=', rec.id), ('r_tenant_id', '!=', False)],
-                order='id desc', limit=1
-            )
-            rec.tenant_id = rent.r_tenant_id if rent else False
+            rec.tenant_id = rec.apart_id.tenant_id
 
     def action_allocated(self):
         for record in self:

@@ -85,7 +85,7 @@
             <field name="perm_unlink" eval="False"/>
         </record>
 
-          <record id="visitor_rule" model="ir.rule">
+        <record id="visitor_rule" model="ir.rule">
             <field name="name">Visitor Restriction</field>
             <field name="model_id" ref="society_management.model_society_visitors"/>
             <field name="groups" eval="[(4, ref('society_management.group_society_tenant'))]"/>
@@ -95,6 +95,49 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_unlink" eval="False"/>
         </record>
+
+        <record id="common_area_tenant_rule" model="ir.rule">
+            <field name="name">Tenant: View only their Common Area Bills</field>
+            <field name="model_id" ref="society_management.model_society_common_area"/>
+            <field name="groups" eval="[(4, ref('society_management.group_society_tenant'))]"/>
+            <field name="domain_force">[
+                ('c_apart_id.tenant_id.tenant_id.id', '=', user.partner_id.id)
+                ]
+            </field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="utility_tenant_rule" model="ir.rule">
+            <field name="name">Tenant: View only their Utility Bills</field>
+            <field name="model_id" ref="society_management.model_society_utility"/>
+            <field name="groups" eval="[(4, ref('society_management.group_society_tenant'))]"/>
+            <field name="domain_force">[
+                ('u_apart_id.tenant_id.tenant_id.id', '=', user.partner_id.id)
+                ]
+            </field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="asset_tenant_rule" model="ir.rule">
+            <field name="name">Tenant: View only their Assets</field>
+            <field name="model_id" ref="society_management.model_society_assets"/>
+            <field name="groups" eval="[(4, ref('society_management.group_society_tenant'))]"/>
+            <field name="domain_force">[
+                ('aprt_num_id.tenant_id.tenant_id.id', '=', user.partner_id.id)
+                ]
+            </field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
 
     </data>
 </odoo>

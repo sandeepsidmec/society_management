@@ -23,15 +23,21 @@ class Apartment(models.Model):
 
 
 
+    # def _compute_tenant(self):
+    #     for rec in self:
+    #         rent = self.env['society.rent'].search(
+    #             [('r_apart_id', '=', rec.id), ('r_tenant_id', '!=', False)],
+    #             order='id desc', limit=1
+    #         )
+    #         rec.tenant_id = rent.r_tenant_id if rent else False
+
+    rental_ids = fields.One2many("society.rent", "r_apart_id", string="Rental Records")
+
+    @api.depends('rental_ids.r_tenant_id')
     def _compute_tenant(self):
         for rec in self:
-            rent = self.env['society.rent'].search(
-                [('r_apart_id', '=', rec.id), ('r_tenant_id', '!=', False)],
-                order='id desc', limit=1
-            )
-            rec.tenant_id = rent.r_tenant_id if rent else False
-
-
+            latest_rent = rec.rental_ids.sorted(key=lambda r: r.id, reverse=True)
+            rec.tenant_id = latest_rent[0].r_tenant_id if latest_rent else False
 
     def area(self):
         settings = self.env['maintenance.settings'].search([], limit=1)

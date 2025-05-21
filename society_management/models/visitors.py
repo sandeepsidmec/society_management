@@ -22,13 +22,18 @@ class Visitors(models.Model):
 
     tenant_id = fields.Many2one("society.tenant", string="Current Tenant", compute="_compute_tenant", store=True)
 
+    # def _compute_tenant(self):
+    #     for rec in self:
+    #         rent = self.env['society.rent'].search(
+    #             [('r_apart_id', '=', rec.id), ('r_tenant_id', '!=', False)],
+    #             order='id desc', limit=1
+    #         )
+    #         rec.tenant_id = rent.r_tenant_id if rent else False
+
+    @api.depends('v_apart_id.tenant_id')
     def _compute_tenant(self):
         for rec in self:
-            rent = self.env['society.rent'].search(
-                [('r_apart_id', '=', rec.id), ('r_tenant_id', '!=', False)],
-                order='id desc', limit=1
-            )
-            rec.tenant_id = rent.r_tenant_id if rent else False
+            rec.tenant_id = rec.v_apart_id.tenant_id if rec.v_apart_id else False
 
 
     def action_allow(self):
