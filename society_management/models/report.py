@@ -52,9 +52,9 @@ class Report(models.Model):
                 if month in summary:
                     summary[month]['count'] += 1
                     if record.r_status == 'paid':
-                        summary[month]['amount'] += record.formatted_rent_amt
+                        summary[month]['amount'] += record.rent_amt
                     else:
-                        summary[month]['pending'] += record.formatted_rent_amt
+                        summary[month]['pending'] += record.rent_amt
 
         return summary
     # def get_monthly_summary(self):

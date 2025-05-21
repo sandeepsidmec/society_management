@@ -10,7 +10,7 @@ class Owner(models.Model):
 
     o_name= fields.Char(string=" Full Name", required=True)
     o_email= fields.Char(string=" Email_address", required=True)
-    o_phone= fields.Integer(string=" Phone Number")
+    o_phone= fields.Char(string=" Phone Number")
     o_status= fields.Selection([('active', 'Active'), ('inactive', 'Inactive')],string="Status")
     o_tower_id=fields.Many2one("society.tower","Select_Tower")
     o_floor_id=fields.Many2one("society.floor","Select_Floor")

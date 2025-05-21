@@ -70,14 +70,6 @@ class AddServices(models.Model):
         })
 
         return record
-    # def get_status(self):
-    #     for i in self:
-    #         records = self.env['society.line.services'].search([()])
-    #         for j in records:
-    #             if j.status:
-    #                 i.status=j.status
-    #             if j.frequency and j.price:
-                    # i.l_help=f"{j.status},{j.help}"
 
 
     def help_avail(self):

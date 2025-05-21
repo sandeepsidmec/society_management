@@ -9,7 +9,7 @@
 
                     <group>
                         <field name="society_id"/>
-                        <field name="tower_id"/>r_month
+                        <field name="tower_id"/>
 <!--                        <field name="r_month"/>-->
                         <field name="report" widget="radio"/>
                         <field name="month" invisible="report == 'yearly'"/>
