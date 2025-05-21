@@ -1,14 +1,28 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_society_user,access_society_user,model_society_user,,1,1,1,1
-access_society_owner,access_society_owner,model_society_owner,,1,1,1,1
 
-access_society_tenant,access_society_tenant,model_society_tenant,,1,1,1,1
-access_society_rent,access_society_rent,model_society_rent,,1,1,1,1
+access_society_owner_admin,access_society_owner_admin,model_society_owner,society_management.group_society_admin,1,1,1,1
+access_society_owner_owner,access_society_owner_owner,model_society_owner,society_management.group_society_owner,1,1,1,1
+access_society_owner_tenant,access_society_owner_tenant,model_society_owner,society_management.group_society_tenant,1,0,0,0
+
+access_society_tenant_admin,access_society_tenant_admin,model_society_tenant,society_management.group_society_admin,1,1,1,1
+access_society_tenant_owner,access_society_tenant_owner,model_society_tenant,society_management.group_society_owner,1,1,1,1
+access_society_tenant_tenant,access_society_tenant_tenant,model_society_tenant,society_management.group_society_tenant,1,0,0,0
+
+access_society_rent_admin,access_society_rent_admin,model_society_rent,society_management.group_society_admin,1,1,1,1
+access_society_rent_owner,access_society_rent_owner,model_society_rent,society_management.group_society_owner,1,1,1,1
+access_society_rent_tenant,access_society_rent_tenant,model_society_rent,society_management.group_society_tenant,1,0,0,0
 
 access_society_tower,access_society_tower,model_society_tower,,1,1,1,1
-access_society_apartment,access_society_apartment,model_society_apartment,,1,1,1,1
 access_society_floor,access_society_floor,model_society_floor,,1,1,1,1
-access_society_parking,access_society_parking,model_society_parking,,1,1,1,1
+
+access_society_apartment_admin,access_society_apartment_admin,model_society_apartment,society_management.group_society_admin,1,1,1,1
+access_society_apartment_owner,access_society_apartment_owner,model_society_apartment,society_management.group_society_owner,1,1,1,1
+access_society_apartment_tenant,access_society_apartment_tenant,model_society_apartment,society_management.group_society_tenant,1,0,0,0
+
+access_society_parking_admin,access_society_parking_admin,model_society_parking,society_management.group_society_admin,1,1,1,1
+access_society_parking_owner,access_society_parking_owner,model_society_parking,society_management.group_society_owner,1,1,1,1
+access_society_parking_tenant,access_society_parking_tenant,model_society_parking,society_management.group_society_tenant,1,0,0,0
 
 access_society_amenities,access_society_amenities,model_society_amenities,,1,1,1,1
 access_society_book_amenities,access_society_book_amenities,model_society_book_amenities,,1,1,1,1
@@ -17,15 +31,12 @@ access_society_utility,access_society_utility,model_society_utility,,1,1,1,1
 access_society_common_area,access_society_common_area,model_society_common_area,,1,1,1,1
 access_society_maintenance,access_society_maintenance,model_society_maintenance,,1,1,1,1
 
+access_society_ticket,access_society_ticket,model_society_ticket,,1,1,1,1
 access_society_offline,access_society_offline,model_society_offline,,1,1,1,1
-access_society_assets,access_society_assets,model_society_assets,,1,1,1,1
 access_society_m_schedule,access_society_m_schedule,model_society_m_schedule,,1,1,1,1
 access_society_issue_report,access_society_issue_report,model_society_issue_report,,1,1,1,1
 
-access_society_ticket,access_society_ticket,model_society_ticket,,1,1,1,1
 access_society_notice_board,access_society_notice_board,model_society_notice_board,,1,1,1,1
-access_society_visitors,access_society_visitors,model_society_visitors,,1,1,1,1
-access_society_events,access_society_events,model_society_events,,1,1,1,1
 access_society_reports,access_society_reports,model_society_reports,,1,1,1,1
 
 access_society_add_services,access_society_add_services,model_society_add_services,,1,1,1,1
@@ -45,4 +56,17 @@ access_maintenance_settings,access_maintenance_settings,model_maintenance_settin
 access_maintenance_settings_lines,access_maintenance_settings_lines,model_maintenance_settings_lines,,1,1,1,1
 access_visitor_type_settings,access_visitor_type_settings,model_visitor_type_settings,,1,1,1,1
 access_service_type_settings,access_service_type_settings,model_service_type_settings,,1,1,1,1
+
+
+access_society_visitors_admin,access_society_visitors_admin,model_society_visitors,society_management.group_society_admin,1,1,1,1
+access_society_visitors_owner,access_society_visitors_owner,model_society_visitors,society_management.group_society_owner,1,1,1,1
+access_society_visitors_tenant,access_society_visitors_tenant,model_society_visitors,society_management.group_society_tenant,1,0,0,0
+
+access_society_assets_admin,access_society_assets_admin,model_society_assets,society_management.group_society_admin,1,1,1,1
+access_society_assets_owner,access_society_assets_owner,model_society_assets,society_management.group_society_owner,1,1,1,1
+access_society_assets_tenant,access_society_assets_tenant,model_society_assets,society_management.group_society_tenant,1,0,0,0
+
+access_society_events_admin,access_society_events_admin,model_society_events,society_management.group_society_admin,1,1,1,1
+access_society_events_owner,access_society_events_owner,model_society_events,society_management.group_society_owner,1,1,1,1
+access_society_events_tenant,access_society_events_tenant,model_society_events,society_management.group_society_tenant,1,0,0,0
 

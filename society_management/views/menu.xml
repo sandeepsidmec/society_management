@@ -40,7 +40,7 @@
 
     <menuitem id="service" name="Services" parent="society_management"/>
     <menuitem id="services" name="Services" parent="service" action="action_society_services" sequence="1"/>
-    <menuitem id="add_services" name="Add Services" parent="service" action="action_society_add_services" sequence="2"/>
+    <menuitem id="add_services" name="Add Services" parent="service" action="action_society_add_services" sequence="2" groups="society_management.group_society_admin"/>
     <menuitem id="clock" name="Clock_In/Out" parent="service" action="action_society_clock" sequence="3"/>
 
 
