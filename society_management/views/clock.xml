@@ -18,7 +18,7 @@
             </field>
         </record>
         <record id="action_society_clock" model="ir.actions.act_window">
-            <field name="name">society_clock</field>
+            <field name="name">Clock</field>
             <field name="res_model">society.clock</field>
             <field name="view_mode">list</field>
             <field name="view_id" ref="view_clock_list"/>
