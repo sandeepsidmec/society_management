@@ -31,6 +31,8 @@ access_society_reports,access_society_reports,model_society_reports,,1,1,1,1
 access_society_add_services,access_society_add_services,model_society_add_services,,1,1,1,1
 access_society_services,access_society_services,model_society_services,,1,1,1,1
 access_society_line_services,access_society_line_services,model_society_line_services,,1,1,1,1
+access_society_clock,access_society_clock,model_society_clock,,1,1,1,1
+access_society_clock_wizard,society.clock.wizard,model_society_clock_wizard,,1,1,1,1
 
 access_society_settings,access_society_settings,model_society_settings,,1,1,1,1
 access_society_society_settings,access_society_society_settings,model_society_society_settings,,1,1,1,1

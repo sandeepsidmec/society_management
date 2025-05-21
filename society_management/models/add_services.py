@@ -4,7 +4,7 @@ from odoo import models, fields, api
 class AddServices(models.Model):
     _name = 'society.add.services'
     _description = 'Society_add_Services'
-    _rec_name = 'service_id'
+    _rec_name = 'contact'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
 

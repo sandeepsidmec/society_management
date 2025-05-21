@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_clock_list" model="ir.ui.view">
+            <field name="name">society_clock</field>
+            <field name="model">society.clock</field>
+            <field name="arch" type="xml">
+                <list string="service_clock">
+                    <field name="service_id"/>
+                    <field name="provider_id"/>
+                    <field name="clock_in"/>
+                    <field name="clock_out"/>
+                    <button name="%(action_clock_wizard)d"
+                            string="Update"
+                            type="action"
+                            icon="fa-pencil-square-o"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_society_clock" model="ir.actions.act_window">
+            <field name="name">Clock</field>
+            <field name="res_model">society.clock</field>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="view_clock_list"/>
+        </record>
+    </data>
+</odoo>

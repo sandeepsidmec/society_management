@@ -30,3 +30,4 @@ from . import events
 from . import report
 from . import add_services
 from . import services
+from . import clock

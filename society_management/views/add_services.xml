@@ -51,7 +51,7 @@
 
 
     <record id="action_society_add_services" model="ir.actions.act_window">
-        <field name="name">Services</field>
+        <field name="name">Add Services</field>
         <field name="res_model">society.add.services</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_add_services_list"/>

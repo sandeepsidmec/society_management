@@ -29,6 +29,8 @@
         "views/report.xml",
         "views/add_services.xml",
         "views/services.xml",
+        "views/clock.xml",
+        "Wizard/wizard_view.xml",
         "reports/report.xml",
         "reports/maintenance_report.xml",
         "reports/monthly_report.xml",
