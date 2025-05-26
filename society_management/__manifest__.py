@@ -2,8 +2,8 @@
     "name": "Society Management System",
     "depends": ["mail", ],
     "data": [
-        "security/ir.model.access.csv",
         "security/security.xml",
+        "security/ir.model.access.csv",
         "views/settings.xml",
         "views/user.xml",
         "views/tenant.xml",
@@ -23,6 +23,7 @@
         "views/m_schedule.xml",
         "views/issue_report.xml",
         "views/tickets.xml",
+        "views/dashboard.xml",
         "views/notice_board.xml",
         "views/visitor.xml",
         "views/events.xml",

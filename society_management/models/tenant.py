@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields,api
 
 class Tenant(models.Model):
     _name = 'society.tenant'
@@ -12,6 +12,9 @@ class Tenant(models.Model):
     t_phone= fields.Char(string=" Phone Number")
     t_status= fields.Selection([('inactive', 'Inactive'), ('active', 'Active')],string="Status", default="inactive")
     t_photo=fields.Binary("photo_upload")
+    apartment_id=fields.Many2one("society.apartment","Apartment ID")
+
+    owner_id = fields.Many2one("society.owner", string="Apartment Owner", compute="_compute_owner", store=True)
 
 
     def action_active(self):

@@ -15,6 +15,7 @@ access_society_rent_tenant,access_society_rent_tenant,model_society_rent,society
 
 access_society_tower,access_society_tower,model_society_tower,,1,1,1,1
 access_society_floor,access_society_floor,model_society_floor,,1,1,1,1
+access_society_dashboard,access_society_dashboard,model_society_dashboard,,1,1,1,1
 
 access_society_apartment_admin,access_society_apartment_admin,model_society_apartment,society_management.group_society_admin,1,1,1,1
 access_society_apartment_owner,access_society_apartment_owner,model_society_apartment,society_management.group_society_owner,1,1,1,1

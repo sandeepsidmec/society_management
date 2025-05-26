@@ -57,6 +57,7 @@ class Report(models.Model):
                         summary[month]['pending'] += record.rent_amt
 
         return summary
+
     # def get_monthly_summary(self):
     #     if not self.year:
     #         return {}

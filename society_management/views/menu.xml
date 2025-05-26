@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
     <menuitem id="society_management" name="Society"/>
+    <menuitem id="menu_dashboard_page" name="Dashboard" parent="society_management" action="action_society_dashboard" sequence="0"/>
     <menuitem id="society_management_user" name="User" action="action_society_user" parent="society_management"
               sequence="1" groups="society_management.group_society_admin"/>
     <menuitem id="owner" name="Owner" action="action_society_owner" parent="society_management" sequence="2"/>
@@ -40,11 +42,13 @@
 
     <menuitem id="service" name="Services" parent="society_management"/>
     <menuitem id="services" name="Services" parent="service" action="action_society_services" sequence="1"/>
-    <menuitem id="add_services" name="Add Services" parent="service" action="action_society_add_services" sequence="2" groups="society_management.group_society_admin"/>
+    <menuitem id="add_services" name="Add Services" parent="service" action="action_society_add_services" sequence="2"
+              groups="society_management.group_society_admin"/>
     <menuitem id="clock" name="Clock_In/Out" parent="service" action="action_society_clock" sequence="3"/>
 
 
-    <menuitem id="menu_report" name="Report" parent="society_management" groups="society_management.group_society_admin"/>
+    <menuitem id="menu_report" name="Report" parent="society_management"
+              groups="society_management.group_society_admin"/>
     <menuitem id="report" name="Maintenance Report" parent="menu_report" action="action_society_reports"/>
 
     <menuitem id="society_management_settings" name="Settings" parent="society_management" sequence="100"
@@ -69,4 +73,5 @@
               parent="society_management_settings"/>
     <menuitem id="society_management_service_settings" name="Service Settings" action="action_service_type_settings"
               parent="society_management_settings"/>
+
 </odoo>

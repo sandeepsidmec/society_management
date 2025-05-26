@@ -26,6 +26,23 @@
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
         </record>
 
+        <record model="ir.rule" id="owner_read_own_record">
+            <field name="name">Owner: Read only own record</field>
+            <field name="model_id" ref="society_management.model_society_owner"/>
+            <field name="domain_force">[('o_name', '=', user.name)]</field>
+            <field name="groups" eval="[(4, ref('society_management.group_society_owner'))]"/>
+        </record>
+
+
+        <record id="tenant_owner_apartment_rule" model="ir.rule">
+            <field name="name">Tenant - Owner can see only own tenants</field>
+            <field name="model_id" ref="society_management.model_society_tenant"/>
+            <field name="domain_force">
+                [('apartment_id.owner_id.o_email', '=', user.login)]
+            </field>
+            <field name="groups" eval="[(4, ref('society_management.group_society_owner'))]"/>
+        </record>
+
 
         <record model="ir.rule" id="tenant_read_own_record">
             <field name="name">Tenant: Read only own record</field>
