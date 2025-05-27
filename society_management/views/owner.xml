@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <form string="Owner">
                 <sheet>
+                    <field name="o_photo" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
                             <field name="o_name"/>
@@ -16,7 +17,7 @@
                             <field name="o_tower_id"/>
                             <field name="o_floor_id"/>
                             <field name="owner_apart_ids" widget="many2many_tags"/>
-                            <field name="o_photo"/>
+
                         </group>
                     </group>
                 </sheet>

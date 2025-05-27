@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <form string="User">
                 <sheet>
+                     <field name="photo" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
                             <field name="user_id"/>
@@ -15,7 +16,7 @@
                         <group>
                             <field name="role"/>
                             <field name="status"/>
-                            <field name="photo"/>
+
                         </group>
                     </group>
                 </sheet>
