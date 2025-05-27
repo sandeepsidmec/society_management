@@ -19,6 +19,17 @@ class SocietyDashboard(models.TransientModel):
     cbill_ids = fields.Many2many('society.common_area', string='', compute='_compute_common_bills')
     clock_ids = fields.Many2many('society.clock', string='', compute='_compute_clock')
 
+
+
+    def action_refresh_dashboard(self):
+        self._compute_counts()
+        self._compute_amenities()
+        self._compute_rents()
+        self._compute_tickets()
+        self._compute_bills()
+        self._compute_common_bills()
+        self._compute_clock()
+
     @api.depends()
     def _compute_name(self):
         for record in self:
@@ -69,6 +80,7 @@ class SocietyDashboard(models.TransientModel):
             rec.tenant_count = self.env['society.tenant'].search_count([])
             rec.apartment_count = self.env['society.apartment'].search_count([])
             rec.maintenance_due_count = self.env['society.maintenance'].search_count([])
+
 
 
 

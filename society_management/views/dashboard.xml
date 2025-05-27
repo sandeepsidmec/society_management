@@ -5,6 +5,9 @@
         <field name="model">society.dashboard</field>
         <field name="arch" type="xml">
             <form string="Society Dashboard" create="0" edit="0" delete="0">
+                <header>
+                    <button name="action_refresh_dashboard" string="Refresh" type="object" class="btn-primary"/>
+                </header>
 
                 <sheet>
                     <group>
