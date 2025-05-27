@@ -9,7 +9,6 @@
                 <sheet>
                     <group>
                         <group string="Amenities" col="6">
-                            <!--                <field name="amenities_ids" widget="many2many_tags" options="{'no_create': True}" />-->
                             <field name="amenities_ids" context="{'search_default_groupby_status': 1}"
                                    style="height:200px; overflow:auto;">
                                 <list>
@@ -26,8 +25,8 @@
                                     <field name="r_apart_id"/>
                                     <field name="r_tenant_id"/>
                                     <field name="formatted_rent_amt" string="Amount"/>
-                                    <field name="r_status"  widget="badge" decoration-danger="r_status == 'unpaid'"
-                       decoration-success="r_status == 'paid'"/>
+                                    <field name="r_status" widget="badge" decoration-danger="r_status == 'unpaid'"
+                                           decoration-success="r_status == 'paid'"/>
                                 </list>
                             </field>
                         </group>
@@ -39,18 +38,46 @@
                                 <list>
                                     <field name="name"/>
                                     <field name="tenant_id"/>
-                                    <field name="status" widget="badge" decoration-danger="status == 'closed'"  decoration-warning="status == 'pending'" decoration-info="status == 'open'" decoration-success="status == 'resolved'"/>
+                                    <field name="status" widget="badge" decoration-danger="status == 'closed'"
+                                           decoration-warning="status == 'pending'" decoration-info="status == 'open'"
+                                           decoration-success="status == 'resolved'"/>
                                 </list>
                             </field>
                         </group>
-                         <group string="Utility Bills and Payment Dues" col="6">
+                        <group string="Utility Bills and Payment Dues" col="6">
                             <field name="bill_ids" context="{'search_default_groupby_status': 1}"
                                    style="height:200px; overflow:auto;">
                                 <list>
                                     <field name="u_apart_id"/>
                                     <field name="u_bill_type_id"/>
-                                     <field name="u_bill_date"/>
-                                    <field name="u_status" widget="badge"  decoration-info="u_status == 'unpaid'" decoration-success="u_status == 'paid'"/>           </list>
+                                    <field name="u_bill_date"/>
+                                    <field name="u_status" widget="badge" decoration-info="u_status == 'unpaid'"
+                                           decoration-success="u_status == 'paid'"/>
+                                </list>
+                            </field>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Common Area Bills and Payment Dues" col="6">
+                            <field name="cbill_ids" context="{'search_default_groupby_status': 1}"
+                                   style="height:200px; overflow:auto;">
+                                <list>
+                                    <field name="c_apart_id"/>
+                                    <field name="c_bill_type_id"/>
+                                    <field name="c_bill_date"/>
+                                    <field name="c_bill_amt"/>
+                                </list>
+                            </field>
+                        </group>
+                        <group string="Service Clock-in/Clock-out" col="6">
+                            <field name="clock_ids" context="{'search_default_groupby_status': 1}"
+                                   style="height:200px; overflow:auto;">
+                                <list>
+                                    <field name="service_id"/>
+                                    <field name="provider_id"/>
+                                    <field name="clock_in"/>
+                                    <field name="clock_out"/>
+                                </list>
                             </field>
                         </group>
                     </group>

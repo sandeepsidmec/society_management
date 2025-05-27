@@ -11,7 +11,6 @@
                             <field name="o_name"/>
                             <field name="o_email"/>
                             <field name="o_phone"/>
-                            <field name="o_status"/>
                         </group>
                         <group>
                             <field name="o_tower_id"/>

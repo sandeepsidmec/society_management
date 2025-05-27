@@ -23,13 +23,13 @@ class Apartment(models.Model):
 
 
 
-    # def _compute_tenant(self):
-    #     for rec in self:
-    #         rent = self.env['society.rent'].search(
-    #             [('r_apart_id', '=', rec.id), ('r_tenant_id', '!=', False)],
-    #             order='id desc', limit=1
-    #         )
-    #         rec.tenant_id = rent.r_tenant_id if rent else False
+    def _compute_tenant(self):
+        for rec in self:
+            rent = self.env['society.rent'].search(
+                [('r_apart_id', '=', rec.id), ('r_tenant_id', '!=', False)],
+                order='id desc', limit=1
+            )
+            rec.tenant_id = rent.r_tenant_id if rent else False
 
     rental_ids = fields.One2many("society.rent", "r_apart_id", string="Rental Records")
 
@@ -41,12 +41,12 @@ class Apartment(models.Model):
 
     def area(self):
         settings = self.env['maintenance.settings'].search([], limit=1)
-        unit = settings.unit_name or '' # if we dont use --(or '') then if unit name not given it returns false
+        unit = settings.unit_name or ''  # Get unit name, or empty string if not set
         for i in self:
             if i.apart_area:
-                i.l_apart_area=f"{i.apart_area} {unit}"
+                i.l_apart_area = f"{i.apart_area} {unit}"
             else:
-                i.l_apart_area = unit or ''
+                i.l_apart_area = f"0 {unit}".strip()
 
     def action_unsold(self):
         for record in self:

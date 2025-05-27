@@ -24,3 +24,9 @@ class Tenant(models.Model):
     def action_inactive(self):
         for record in self:
             record.t_status = 'inactive'
+
+    @api.onchange('tenant_id')
+    def mail(self):
+        for i in self:
+            if i.tenant_id:
+                i.t_email=i.tenant_id.email

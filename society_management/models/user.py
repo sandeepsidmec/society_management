@@ -1,5 +1,5 @@
 
-from odoo import models, fields
+from odoo import models, fields,api
 
 class User(models.Model):
     _name = 'society.user'
@@ -14,4 +14,11 @@ class User(models.Model):
     role= fields.Char(string="Role")
     status= fields.Selection([('active', 'Active'), ('inactive', 'Inactive')],string="Status")
     photo=fields.Binary("photo_upload")
+
+    @api.onchange('user_id')
+    def mail(self):
+        for i in self:
+            if i.user_id:
+                i.email = i.user_id.login
+
 

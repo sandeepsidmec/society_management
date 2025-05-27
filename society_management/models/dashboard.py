@@ -16,6 +16,8 @@ class SocietyDashboard(models.TransientModel):
     rent_ids = fields.Many2many('society.rent', string='Rent Payments', compute='_compute_rents')
     ticket_ids = fields.Many2many('society.ticket', string='', compute='_compute_tickets')
     bill_ids = fields.Many2many('society.utility', string='', compute='_compute_bills')
+    cbill_ids = fields.Many2many('society.common_area', string='', compute='_compute_common_bills')
+    clock_ids = fields.Many2many('society.clock', string='', compute='_compute_clock')
 
     @api.depends()
     def _compute_name(self):
@@ -25,7 +27,7 @@ class SocietyDashboard(models.TransientModel):
     def _compute_amenities(self):
         for rec in self:
             # Get all amenities (or filter as needed)
-            amenities = self.env['society.amenities'].search([])
+            amenities = self.env['society.book_amenities'].search([])
             rec.amenities_ids = amenities.ids
 
     def _compute_rents(self):
@@ -42,9 +44,22 @@ class SocietyDashboard(models.TransientModel):
 
     def _compute_bills(self):
         for rec in self:
-            # Get recent tickets
+            # Get recent bills
             bills = self.env['society.utility'].search([], limit=10, order='id desc')
             rec.bill_ids = bills.ids
+
+
+    def _compute_common_bills(self):
+        for rec in self:
+            # Get recent bills
+            cbills = self.env['society.common_area'].search([], limit=10, order='id desc')
+            rec.cbill_ids = cbills.ids
+
+    def _compute_clock(self):
+        for rec in self:
+            # Get recent bills
+            clock = self.env['society.clock'].search([], limit=10, order='id desc')
+            rec.clock_ids = clock.ids
 
     @api.depends()
     def _compute_counts(self):
