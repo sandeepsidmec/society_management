@@ -16,3 +16,12 @@ class Owner(models.Model):
     o_floor_id=fields.Many2one("society.floor","Select_Floor")
     owner_apart_ids=fields.Many2many("society.apartment",string="Apartment Number")
     o_photo=fields.Binary("photo_upload")
+
+
+    def action_active(self):
+        for record in self:
+            record.o_status = 'active'
+
+    def action_inactive(self):
+        for record in self:
+            record.o_status = 'inactive'

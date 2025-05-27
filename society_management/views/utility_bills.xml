@@ -23,7 +23,7 @@
                         <group>
                             <field name="u_due_date"/>
                             <field name="u_bill"/>
-                            <field name="u_status"/>
+<!--                            <field name="u_status"/>-->
                         </group>
 
                     </group>

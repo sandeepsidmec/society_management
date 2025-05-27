@@ -5,6 +5,13 @@
         <field name="model">society.owner</field>
         <field name="arch" type="xml">
             <form string="Owner">
+                <header>
+                    <field name="o_status" widget="statusbar" statusbar_visible="active,inactive"/>
+                    <button name="action_active" type="object" string="Active"
+                            class="btn-primary"/>
+                    <button name="action_inactive" type="object" string="Inactive"
+                             class="btn-secondary"/>
+                </header>
                 <sheet>
                     <field name="o_photo" widget="image" class="oe_avatar"/>
                     <group>

@@ -21,4 +21,12 @@ class User(models.Model):
             if i.user_id:
                 i.email = i.user_id.login
 
+    def action_active(self):
+        for record in self:
+            record.status = 'active'
+
+    def action_inactive(self):
+        for record in self:
+            record.status = 'inactive'
+
 
