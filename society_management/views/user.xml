@@ -5,7 +5,15 @@
         <field name="model">society.user</field>
         <field name="arch" type="xml">
             <form string="User">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="active,inactive"/>
+                    <button name="action_active" type="object" string="Active"
+                            class="btn-primary"/>
+                    <button name="action_inactive" type="object" string="Inactive"
+                             class="btn-secondary"/>
+                </header>
                 <sheet>
+                     <field name="photo" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
                             <field name="user_id"/>
@@ -14,8 +22,8 @@
                         </group>
                         <group>
                             <field name="role"/>
-                            <field name="status"/>
-                            <field name="photo"/>
+<!--                            <field name="status"/>-->
+
                         </group>
                     </group>
                 </sheet>

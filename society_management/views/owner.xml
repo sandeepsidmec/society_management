@@ -5,7 +5,15 @@
         <field name="model">society.owner</field>
         <field name="arch" type="xml">
             <form string="Owner">
+                <header>
+                    <field name="o_status" widget="statusbar" statusbar_visible="active,inactive"/>
+                    <button name="action_active" type="object" string="Active"
+                            class="btn-primary"/>
+                    <button name="action_inactive" type="object" string="Inactive"
+                             class="btn-secondary"/>
+                </header>
                 <sheet>
+                    <field name="o_photo" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
                             <field name="o_name"/>
@@ -16,7 +24,7 @@
                             <field name="o_tower_id"/>
                             <field name="o_floor_id"/>
                             <field name="owner_apart_ids" widget="many2many_tags"/>
-                            <field name="o_photo"/>
+
                         </group>
                     </group>
                 </sheet>

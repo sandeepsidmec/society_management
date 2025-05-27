@@ -23,7 +23,7 @@
                         <group>
                             <field name="c_due_date"/>
                             <field name="c_bill"/>
-                            <field name="c_status"/>
+<!--                            <field name="c_status"/>-->
                             <field name="c_proof_bill" invisible="c_status != 'paid'"/>
                             <field name="c_bill_payment" invisible="c_status != 'paid'"/>
                         </group>

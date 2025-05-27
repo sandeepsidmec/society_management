@@ -21,7 +21,7 @@
                         <field name="tot_cost"/>
                         <field name="r_month"/>
                         <field name="r_year"/>
-                        <field name="status"/>
+<!--                        <field name="status"/>-->
                     </group>
                 </sheet>
                 <chatter/>

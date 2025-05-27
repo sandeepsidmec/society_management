@@ -13,17 +13,14 @@
                              class="btn-secondary"/>
                 </header>
                 <sheet>
-                    <group>
+                           <field name="t_photo" widget="image" class="oe_avatar"/>
+
                         <group>
                             <field name="tenant_id"/>
                             <field name="t_email"/>
                             <field name="t_phone"/>
                         </group>
-                        <group>
-                            <field name="t_status"/>
-                            <field name="t_photo"/>
-                        </group>
-                    </group>
+
                 </sheet>
                 <chatter/>
             </form>

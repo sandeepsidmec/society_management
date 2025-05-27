@@ -29,7 +29,7 @@
                             <field name="owner_id"/>
                         </group>
                         <group>
-                            <field name="status"/>
+<!--                            <field name="status"/>-->
                             <field name="subject"/>
                             <field name="description"/>
                             <field name="file"/>

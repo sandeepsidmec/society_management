@@ -19,7 +19,7 @@
                         <group>
                             <field name="asset_id"/>
                             <field name="issue_title"/>
-                            <field name="state" />
+<!--                            <field name="state" />-->
                         </group>
                         <group>
 
